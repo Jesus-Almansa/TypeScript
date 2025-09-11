@@ -1,0 +1,34 @@
+<h1>Listado de productos</h1>
+
+@for(p of lista;track $index) {
+    <p>
+        <b>{{p.id}} {{p.nombre}}</b>
+        indice <b>{{$index}}</b> primer elemento <b>{{$first}}</b> si es verdadero o falso <b>{{$even}}</b> total de elementos del array <b>{{$count}}</b>
+        <br>
+        <b>Descripcion </b>{{p.descripcion}}<br>
+        {{p.precio}} euros ---
+        @if (p.precio < 30) {
+            barato
+        }
+        @else if (p.precio<100) {
+            normal
+        }
+        @else {
+            caro
+        }
+        @switch (p.color) {
+            @case ('R') {
+                rojo
+            }
+            @case ('V') {
+                verde
+            }
+            @case ('A') {
+                azul
+            }
+            @default {
+                otros
+            }
+        }
+    </p>
+}

@@ -1,0 +1,20 @@
+<h1>Ejemplo uno</h1>
+
+<p>
+    <input type="text" [value]="texto" (change)="eventoCambiar($event)"><br>
+    El valor escrito es <b>{{texto}}</b>
+</p>
+
+<p>
+    <input type="text" [(ngModel)]="texto" placeholder="Silsonea"><br>
+    El valor escrito es <b>{{texto}}</b>
+</p>
+
+<p>
+    <input type="text" [value]="texto" #cuadroTexto>
+    <button (click)="valorCambiado(cuadroTexto)">Aplicar cambios</button>
+</p>
+
+<p>El valor escrito es {{texto}}</p>
+
+

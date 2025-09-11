@@ -1,0 +1,13 @@
+div {
+    width:0px;
+    height:0px;
+
+    border-style:solid;
+    border-color:transparent transparent #e07070 transparent;
+    
+    border-top-width:0px;
+    border-left-width:50px; /* base de 100 */
+    border-right-width:50px;
+    
+    border-bottom-width:100px; /* altura */
+}

@@ -1,0 +1,81 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #303030;
+    padding: 0.4em;
+}
+
+thead td {
+    background-color: #303030;
+    color:#fafafa;
+    padding: 0.5em;
+    font-weight: bold;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.numero {
+    text-align: right;
+}
+
+.caro {
+    background-color:#ffe0e0;
+    font-weight: bold;
+}
+
+.barato {
+    background-color:#bfecbe;
+    font-weight: bold;
+}
+
+.input-numero {
+    width: 120px;
+    padding: 0.3em;
+    font-size: 1em;
+    display: inline-block; /* permite que estén en la misma línea */
+    margin-right: 1em; /* espacio entre ellos */
+}
+
+/* Estilo común para todos los botones de la tabla */
+table button {
+  width: 100px;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 4px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+
+  /* NUEVO: sombra y transición */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* sombra sutil */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* transición suave */
+}
+
+/* Botón Eliminar */
+table button.eliminar {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
+table button.eliminar:hover {
+  background-color: red;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* sombra más intensa al hover */
+}
+
+/* Botón Añadir */
+table button.añadir {
+  background-color: green;
+  color: white;
+}
+
+table button.añadir:hover {
+  background-color: darkgreen;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+

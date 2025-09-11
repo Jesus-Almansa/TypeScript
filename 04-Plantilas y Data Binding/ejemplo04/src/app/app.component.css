@@ -1,0 +1,39 @@
+header, footer {
+    margin: 0px;
+    background-color: #305030;
+    padding: 0px 10%;
+}
+
+header, footer {
+    overflow: hidden;
+}
+
+footer {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0px;
+    bottom:0px;
+}
+
+footer p {
+    text-align: right;
+}
+
+header h1, footer p {
+    color:#f0fff0;
+}
+
+article {
+    padding-bottom: 2em;
+    margin: 5px 10%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+div {
+    width: 49%;
+    padding: 1em;
+    box-sizing: border-box;
+}

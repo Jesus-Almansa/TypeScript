@@ -1,0 +1,26 @@
+<!-- Poner {{numero}} se llama interpolación, sirve para mostrar propiedades del componente en la plantilla -->
+<p>
+    El valor del primer operando es <b>{{numero}}</b><br>
+    El valor del segundo operando es <b>{{texto}}</b><br>
+    Los valores concatenados <b>{{numero + ' ---- ' + texto}}</b>
+</p>
+
+<!-- Event binding, click y mouseenter son enlace a eventos que el propio DOM ejecuta -->
+<p>
+    <button (click)="aumentar(10)" (mouseenter)="aumentar(1)">Incrementar</button>
+</p>
+
+<p>
+    <button (click)="decrementar(10)" (mouseenter)="decrementar(1)">Decrementar</button>
+</p>
+
+
+<!-- Property binding, asignacion dinamica de valores de propiedades del componente a elementos del html -->
+<p>
+    <input type="text" [value]="texto" (change)="cambiarTexto($event)">
+</p>
+
+<!-- Enlace bidireccional, comobina property y event binding para mantener sincronizado el valor del input con la propiedad del componente -->
+<p>
+    <input type="text" [(ngModel)]="texto">
+</p>

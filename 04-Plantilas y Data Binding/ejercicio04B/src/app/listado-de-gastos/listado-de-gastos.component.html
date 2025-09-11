@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <td>Código</td>
+      <td>Concepto de gasto</td>
+      <td>Cantidad</td>
+      <td>Precio Unidad</td>
+      <td>Total</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of conceptosService.getConceptos(); let i = index">
+      <td>{{c.codigo}}</td>
+      <td>{{c.concepto}}</td>
+      <td>{{c.cantidad}}</td>
+      <td>{{c.precioUnidad}}</td>
+      <!-- <td>{{c.total}}</td> -->
+      <td><button (click)="eliminarConcepto(i)" class="eliminar">Eliminar</button></td>
+    </tr>
+    <tr>
+      <td><input [(ngModel)]="nuevo.codigo" placeholder="Código"></td>
+      <td><input [(ngModel)]="nuevo.concepto" placeholder="Concepto"></td>
+      <td><input [(ngModel)]="nuevo.cantidad" placeholder="Cantidad"></td>
+      <td><input [(ngModel)]="nuevo.precioUnidad" placeholder="Precio por unidad"></td>
+      <!-- <td><input [(ngModel)]="nuevo.total" placeholder="Concepto"></td> -->
+      <td><button (click)="agregarConcepto()" class="añadir" >Añadir</button></td>
+    </tr>
+  </tbody>
+</table>

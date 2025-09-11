@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #303030;
+    padding: 0.4em;
+}
+
+thead td {
+    background-color: #303030;
+    color:#fafafa;
+    padding: 0.5em;
+    font-weight: bold;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.numero {
+    text-align: right;
+}
+
+.importante {
+    background-color:#ffe0e0;
+    font-weight: bold;
+}

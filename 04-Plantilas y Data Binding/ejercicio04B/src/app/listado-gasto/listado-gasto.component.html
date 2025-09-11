@@ -1,0 +1,42 @@
+<h1>Filtrado por gasto</h1>
+
+<p>
+  <input type="number" [(ngModel)]="filtroGastoSuperior" (input)="aplicarFiltros()" placeholder="Maximo" min='0' class="input-numero" >
+
+  <input type="number" [(ngModel)]="filtroGastoInferior" (input)="aplicarFiltros()" placeholder="Minimo" min='0' class="input-numero">
+</p>
+
+
+<!-- La tabla -->
+<table>
+    <thead>
+        <tr>
+            <td>Código</td>
+            <td>Nombre completo</td>
+            <td>Gasto medio</td>
+            <td>Origen</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for (c of lista; track c.id) {
+            <tr>
+                <td class="centrado">
+                    {{c.id}}
+                </td>
+                <td>{{c.nombre}} {{c.apellidoUno}} {{c.apellidoDos}} </td>
+                <td class="numero" [ngClass]="{caro:c.gastoMedio>1000, barato:c.gastoMedio<20}">
+                    {{c.gastoMedio | number:'1.2-2':'es'}}
+                </td>
+                <td>
+                    ({{c.tipo}})
+                    @switch (c.tipo) {
+                        @case ('A') {Nacional}
+                        @case ('B') {Comunitario}
+                        @case ('C') {Extracomunitario}
+                    }
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

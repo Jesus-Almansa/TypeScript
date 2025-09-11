@@ -1,0 +1,17 @@
+.estiloUno {
+    color: green;
+    font-style: italic;
+}
+.estiloDos {
+    color: blue;
+    font-style: bold;
+}
+.estiloTres {
+    color: red;
+    text-decoration: underline;
+}
+.activado {
+    color: aquamarine;
+    background-color: black;
+    text-decoration: bold;
+}

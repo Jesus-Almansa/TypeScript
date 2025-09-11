@@ -1,0 +1,57 @@
+<h1>Listado por tipo</h1>
+
+<!-- Filtro con ngModel -->
+<p>
+    Tipo de Origen (versión ngModel): 
+    <select [(ngModel)]="filtroOrigen" (change)="aplicarFiltroOrigenNgModel()">
+        <option value=''>Todos</option>
+        <option value='A'>Nacional</option>
+        <option value='B'>Comunitario</option>
+        <option value='C'>Extracomunitario</option>
+    </select>
+</p>
+
+<!-- Filtro con version value -->
+<!-- <p>
+    Tipo de Origen (versión value): 
+    <select [value]="filtroOrigen" (change)="aplicarFiltroOrigenValue($event)">
+        <option value=''>Todos</option>
+        <option value='A'>Nacional</option>
+        <option value='B'>Comunitario</option>
+        <option value='C'>Extracomunitario</option>
+    </select>
+</p> -->
+
+<!-- La tabla -->
+<table>
+    <thead>
+        <tr>
+            <td>Código</td>
+            <td>Nombre completo</td>
+            <td>Gasto medio</td>
+            <td>Origen</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for (c of lista; track c.id) {
+            <tr>
+                <td class="centrado">
+                    {{c.id}}
+                </td>
+                <td>{{c.nombre}} {{c.apellidoUno}} {{c.apellidoDos}} </td>
+                <td class="numero" [ngClass]="{importante:c.gastoMedio>800}">
+                    {{c.gastoMedio | number:'1.2-2':'es'}}
+                </td>
+                <td>
+                    ({{c.tipo}})
+                    @switch (c.tipo) {
+                        @case ('A') {Nacional}
+                        @case ('B') {Comunitario}
+                        @case ('C') {Extracomunitario}
+                    }
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

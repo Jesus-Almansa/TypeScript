@@ -1,0 +1,41 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #303030;
+    padding: 0.4em;
+}
+
+thead td {
+    background-color: #303030;
+    color:#fafafa;
+    padding: 0.5em;
+    font-weight: bold;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.numero {
+    text-align: right;
+}
+
+.caro {
+    background-color:#ffe0e0;
+    font-weight: bold;
+}
+
+.barato {
+    background-color:#bfecbe;
+    font-weight: bold;
+}
+
+.input-numero {
+    width: 120px;
+    padding: 0.3em;
+    font-size: 1em;
+    display: inline-block; /* permite que estén en la misma línea */
+    margin-right: 1em; /* espacio entre ellos */
+}

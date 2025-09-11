@@ -1,0 +1,25 @@
+<header>
+  <h1>Defer</h1>
+</header>
+
+<article>
+  <h1>Soy el componente principal</h1>
+  @defer (when valor>10){
+    <app-uno></app-uno>
+  }
+  @placeholder {
+    <p>Pasa por aquí</p>
+  }
+
+  <p>
+    <button #activar>Componente dos</button>
+  </p>
+
+  @defer(on interaction(activar)) {
+    <app-dos></app-dos>
+  }
+</article>
+
+<footer>
+  <p>Ejemplo de pie de página</p>
+</footer>

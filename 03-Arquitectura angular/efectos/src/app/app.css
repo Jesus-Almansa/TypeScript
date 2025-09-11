@@ -1,0 +1,31 @@
+/* Los estilos del proyeco anterior, más o menos */
+header, footer {
+    margin: 0px;
+    background-color: #303030;
+    padding: 0px 10%;
+}
+
+header, footer {
+    overflow: hidden;
+}
+
+footer {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0px;
+    bottom:0px;
+}
+
+footer p {
+    text-align: right;
+}
+
+header h1, footer p {
+    color:#fafafa;
+}
+
+article {
+    padding-bottom: 2em;
+    margin: 5px 10%;
+}

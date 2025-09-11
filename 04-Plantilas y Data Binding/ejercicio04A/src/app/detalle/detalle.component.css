@@ -1,0 +1,31 @@
+.tabla-vertical {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 350px; /* ancho fijo o ajustable */
+  border: 1px solid #303030;
+}
+
+.tabla-vertical td {
+  border: 1px solid #303030;
+  padding: 0.4em;
+}
+
+.tabla-vertical td:first-child {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  width: 120px; /* ancho fijo para etiquetas */
+}
+
+.numero {
+  text-align: left;
+}
+
+.caro {
+  background-color: #ffe0e0;
+  font-weight: bold;
+}
+
+.barato {
+  background-color: #bfecbe;
+  font-weight: bold;
+}

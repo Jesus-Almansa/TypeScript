@@ -1,0 +1,12 @@
+<h1>Listado de Productos</h1>
+<ul>
+    @for (p of lista; track $index) {
+        <li>
+            <b>{{p.id}} {{p.nombre}}</b>. <span [ngClass]="{'barato': p.precio <20, 'caro': p.precio>80}">{{p.precio | number:'1.1-1'}}</span> €<br>
+            {{p.descripcion}}<br>
+        </li> 
+    }
+</ul>
+
+<button (click)="anterior()">Anterior</button>
+<button (click)="siguiente()">Siguiente</button>

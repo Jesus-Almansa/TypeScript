@@ -1,0 +1,13 @@
+<p>
+    <button (click)="aplicar(0)" [ngClass]="{'activado':usarEstilo[0]}">Estilo uno</button>
+    <button (click)="aplicar(1)" [ngClass]="{'activado':usarEstilo[1]}">Estilo dos</button>
+    <button (click)="aplicar(2)" [ngClass]="{'activado':usarEstilo[2]}">Estilo tres</button>
+</p>
+
+<p [ngClass]="{'estiloUno':usarEstilo[0], 'estiloDos':usarEstilo[1], 'estiloTres':usarEstilo[2]}">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae ex ut nulla sollicitudin suscipit. In
+    pellentesque interdum augue, vitae tristique eros tempor placerat. Curabitur sed lacinia nisi. Duis risus quam,
+    suscipit quis efficitur sed, aliquam id arcu. Suspendisse vel sollicitudin orci. Praesent nec fringilla dui, in
+    laoreet lectus. Morbi consectetur fringilla fringilla. Donec ut vestibulum libero, id sagittis lorem. Sed diam
+    purus, tempus eget arcu vitae, efficitur finibus enim.
+</p>

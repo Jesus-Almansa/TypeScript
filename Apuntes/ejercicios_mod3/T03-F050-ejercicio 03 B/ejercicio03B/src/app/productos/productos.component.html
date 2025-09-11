@@ -1,0 +1,12 @@
+<h2>Listado de Productos</h2>
+<ul>
+    @for (p of lista; track $index) {
+        <li>
+            <b>{{p.id}} {{p.nombre}}</b>. {{p.precio}} €<br>
+            {{p.descripcion}}<br>
+            <button (click)="aumentar(p.id, 0.05)">Aumentar</button>
+            <button (click)="disminuir(p.id, 0.05)">Disminuir</button>
+            <button (click)="restaurar(p.id)">Restaurar</button>
+        </li> 
+    }
+</ul>
