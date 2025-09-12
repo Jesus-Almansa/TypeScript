@@ -1,0 +1,112 @@
+<h2>Nuevo registro (plantilla)</h2>
+<div id="contenido">
+    <div class="formulario">
+        <form #formulario="ngForm">
+          <div>
+            <label for="id">Identificador</label>
+            <input type="number" id="id" name="id" class="corto" [(ngModel)]="dato.id" #identificador="ngModel">
+          </div>
+
+          <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="dato.nombre" #nombre="ngModel">
+         </div>
+          
+          <div>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" [(ngModel)]="dato.apellidos" #apellido="ngModel">
+         </div>
+      
+          <div>
+            <label for="correo">Correo electrónico</label>
+            <input type="text" id="correo" name="correo" [(ngModel)]="dato.correo" #correo="ngModel">
+          </div>
+          
+          <div>
+            <label for="fecha">Fecha de incorporación</label>
+            <input type="date" id="fecha" name="fecha" class="corto" [(ngModel)]="dato.fecha" #fecha="ngModel">  
+          </div>
+         
+          <div>
+            <label for="salario">Salario medio anual</label>
+            <input type="number" id="salario" name="salario" class="corto" [(ngModel)]="dato.salario" #salario="ngModel">  
+         </div>
+         
+          <div>
+            <label for="tipo">Tipo</label>
+            <select id="tipo" name="tipo" class="corto" [(ngModel)]="dato.tipo" #tipo="ngModel">
+              @for(tipo of Tipo | keyvalue; track tipo.value){
+                  <option value="{{tipo.value}}">{{tipo.key.substr(0,1).toUpperCase()}}{{tipo.key.substr(1).toLowerCase()}}</option>
+              }
+            </select>
+          </div>
+         
+          <input type="submit" value="Registrar nueva persona">
+        </form>
+      </div>
+
+
+    
+      <div class="parrafo">
+        <p> Los datos leídos del formulario son:</p>
+        <div class="fila">
+        <p>
+          id:<br>
+          nombre:<br>
+          apellidos:<br>
+          correo:<br>
+          fecha:<br>
+          salario:<br>
+          tipo:
+        </p>          
+        <p>
+          <b>{{dato.id}}</b><br>
+          <b>{{dato.nombre}}</b><br>
+          <b>{{dato.apellidos}}</b><br>
+          <b>{{dato.correo}}</b><br>
+          <b>{{dato.fecha}}</b><br>
+          <b>{{dato.salario}}</b><br>
+          <b>{{dato.tipo}}</b>
+          </p>
+        </div>
+
+        <p> Algunas propiedades del formulario (usando la varibale de plantilla y por tanto NgForm) son:</p>
+        <div class="fila">
+          <p>
+            status:<br>
+            valid / invalid:<br>
+            pristine / dirty:<br>
+            touched /untouched:<br>
+            submitted (enviado):
+          </p>         
+          <p>
+            <b>{{formulario.status}}</b><br>
+            <b>{{formulario.valid}} / {{formulario.invalid}}</b><br>
+            <b>{{formulario.pristine}} / {{formulario.dirty}}</b><br>
+            <b>{{formulario.touched}} / {{formulario.untouched}}</b><br>
+            <b>{{formulario.submitted}}</b>
+          </p>
+        </div>  
+
+        <p>Los valores de los campos de "identificador" (usando la variable de plantilla del campo) son:</p>
+        <div class="fila">
+          <p>
+            status:<br>
+            valid / invalid:<br>
+            pristine / dirty:<br>
+            touched /untouched:
+          </p>         
+          <p>
+            <b>{{identificador.status}}</b><br>
+            <b>{{identificador.valid}} / {{identificador.invalid}}</b><br>
+            <b>{{identificador.pristine}} / {{identificador.dirty}}</b><br>
+            <b>{{identificador.touched}} / {{identificador.untouched}}</b>
+            </p>
+        </div>  
+      </div>
+
+</div>
+
+
+
+  

@@ -1,0 +1,64 @@
+<h2>Nuevo registro (reactivo)</h2>
+<div id="contenido">
+    <div class="formulario">
+        <form>
+          <div>
+            <label for="id">Identificador</label>
+            <input type="number" id="id" name="id" class="corto obligatorio" formControlName="identificador" step="100">
+          </div>
+
+          <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" class="obligatorio" formControlName="nombre">
+          </div>
+          
+          <div>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" class="obligatorio" formControlName="apellidos">
+          </div>
+      
+          <div>
+            <label for="correo">Correo electrónico</label>
+            <input type="text" id="correo" name="correo" class="obligatorio" formControlName="correo">
+          </div>
+          
+          <div>
+            <label for="fecha">Fecha de incorporación</label>
+            <input type="date" id="fecha" name="fecha" class="corto obligatorio" formControlName="fecha">  
+           </div>
+         
+          <div>
+            <label for="salario">Salario medio anual</label>
+            <input type="number" id="salario" name="salario" class="corto" formControlName="salario">  
+          </div>
+         
+          <div>
+            <label for="tipo">Tipo</label>
+            <select id="tipo" name="tipo" class="corto obligatorio" formControlName="tipo">
+                @for(valor of valoresTipo;track valor) {
+                    <option value="{{valor}}">
+                        @switch (valor) {
+                            @case('E') {Con Mucha experiencia}
+                            @case('M') {Habituado al trabajo}
+                            @case('P') {Nociones básicas}
+                            @case('D') {Sin información}
+                        } 
+                    </option>
+                }
+      
+            </select>
+          </div>
+         
+          <input type="submit" value="Registrar nueva persona">
+        </form>
+      </div>
+
+      <div class="parrafo">
+        <p>Usaré esta parte de la página para recordar qué información tenemos disponible</p>
+      </div>
+     
+</div>
+
+
+
+  
