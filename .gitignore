@@ -26,3 +26,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+**/Apuntes/*
+./05-Formularios/node_modules/*
+**/node_modules/
