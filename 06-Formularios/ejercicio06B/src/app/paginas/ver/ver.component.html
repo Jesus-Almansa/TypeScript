@@ -1,0 +1,26 @@
+<h2>Listado de productos</h2>
+@if(lista().length!=0) {
+    <table>
+        <thead>
+            <tr>
+                <td>Referencia</td> 
+                <td>Nombre de producto</td> 
+                <td>Precio de compra</td> 
+                <td>Fecha de adquisición</td> 
+            </tr>
+        </thead>
+        <tbody>
+            @for (r of lista(); track r.referencia) {
+                <tr>
+                    <td>{{r.referencia}}</td>
+                    <td>{{r.nombre}}</td>
+                    <td>{{r.precio}}</td>
+                    <td>{{r.fechaAlta}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@else {
+    <p>No hay datos.</p>
+}

@@ -1,0 +1,15 @@
+<form (ngSubmit)="hacerSubmit(formulario)" #formulario="ngForm">
+<div>
+    <label for="referencia">Seleccione un producto</label>
+    <select id="referencia" name="referencia" [(ngModel)]="referencia" #referenciaControl="ngModel" required>
+        @for(p of lista;track p.referencia) {
+            <option value="{{p.referencia}}">{{p.nombre}}</option>
+        }
+    </select>
+</div>
+
+<div>
+    <input type="submit" value="{{mensaje}}" [disabled]="formulario.invalid">
+</div>
+
+</form>
