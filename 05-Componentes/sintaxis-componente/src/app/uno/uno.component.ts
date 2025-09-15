@@ -6,7 +6,7 @@ import { DatosService } from '../datos.service';
   standalone: true,
   imports: [],
   template:
-    `<h1>Componente dos</h1>
+    `<h1>Componente uno</h1>
     <p>Este componente define todo <span class="especial">en el decorador</span></p>
     <p>No usa archivos adicionales para la plantilla ni para los estilos.</p>
     <p>Fíjate que he usado el caracter "acento grave" para definir los textos; es más cómodo para estas tareas porque permite
