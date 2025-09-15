@@ -1,0 +1,25 @@
+<h1>Modificar productos</h1>
+
+<div id="formulario">
+  <detalle-desplegable 
+    (datoSeleccionado)="productoSeleccionado($event)" 
+    [mensaje]="'Seleccionar producto'"
+    [lista]="lista()"/>
+</div>
+
+@if(producto) {
+  <div id="formulario">
+    <detalle-pantalla 
+      (nuevosDatos)="guardarCambios($event)" 
+      [mensaje]="'Modificar producto'"
+      [producto]="producto"/>
+  </div>
+}
+
+@if(bien()) {
+  <p>Producto modificado correctamente.</p>
+}
+
+@if(mal()) {
+  <p class="error">No he podido modificar el producto. Tal vez la referencia ya no exista.</p>
+}
