@@ -1,55 +1,39 @@
-<form [formGroup]="form" (ngSubmit)="hacerSubmit()">
-  <div>
-    <label for="referencia">Referencia de producto</label>
-    <input type="text" id="referencia" formControlName="referencia" class="corto" />
-    @if (campoInvalido('referencia','minlength')) {
-      <span>El tamaño mínimo es {{ form.get('referencia')?.errors?.['minlength']?.requiredLength }}</span>
-    }
-    @if (campoInvalido('referencia','required')) {
-      <span>Es obligatorio</span>
-    }
-  </div>
 
-  <div>
-    <label for="nombre">Nombre de producto</label>
-    <input type="text" id="nombre" formControlName="nombre" />
-    @if (campoInvalido('nombre','minlength')) {
-      <span>El tamaño mínimo es {{ form.get('nombre')?.errors?.['minlength']?.requiredLength }}</span>
-    }
-    @if (campoInvalido('nombre','required')) {
-      <span>Es obligatorio</span>
-    }
-  </div>
+<form (ngSubmit)="hacerSubmit()" [formGroup]="formulario">
+    <div>
+        <label for="referencia">Referencia de producto</label>
+        <input type="text" id="referencia" name="referencia" class="corto obligatorio" formControlName="referencia">
+        <span [hidden]="comprobar('referencia','minlength')">El tamaño mínimo es {{formulario.controls.referencia.errors?.['minlength']?.requiredLength}}</span>
+        <span [hidden]="comprobar('referencia','maxlength')">El tamaño mínimo es {{formulario.controls.referencia.errors?.['maxlength']?.requiredLength}}</span>
+        <span [hidden]="comprobar('referencia','required')">Es obligatorio</span>
+    </div>
 
-  <div>
-    <label for="precio">Precio de compra</label>
-    <input type="number" id="precio" formControlName="precio" />
-    @if (campoInvalido('precio','min')) {
-      <span>El precio mínimo es {{ form.get('precio')?.errors?.['min']?.min }}</span>
-    }
-    @if (campoInvalido('precio','max')) {
-      <span>El precio máximo es {{ form.get('precio')?.errors?.['max']?.max }}</span>
-    }
-    @if (campoInvalido('precio','required')) {
-      <span>Es obligatorio</span>
-    }
-  </div>
+    <div>
+        <label for="nombre">Nombre de producto</label>
+        <input type="text" id="nombre" name="nombre" class="obligatorio" formControlName="nombre">
+        <span [hidden]="comprobar('nombre','minlength')">El tamaño mínimo es {{formulario.controls.nombre.errors?.['minlength']?.requiredLength}}</span>
+        <span [hidden]="comprobar('nombre','minlength')">El tamaño máximo es {{formulario.controls.nombre.errors?.['maxlength']?.requiredLength}}</span>
+        <span [hidden]="comprobar('nombre','required')">Es obligatorio</span>
+    </div>
+    
+    <div>
+        <label for="precio">Precio de compra</label>
+        <input type="number" id="precio" name="precio" class="obligatorio"  formControlName="precio">
+        <span [hidden]="comprobar('precio','min')">El precio mínimo es {{formulario.controls.precio.errors?.['min']?.min}}</span>
+        <span [hidden]="comprobar('precio','max')">El precio máximo es {{formulario.controls.precio.errors?.['max']?.max}}</span>
+        <span [hidden]="comprobar('precio','required')">Es obligatorio</span>
+    </div>
 
-  <div>
-    <label for="fechaAlta">Fecha de adquisición</label>
-    <input
-      type="date"
-      id="fechaAlta"
-      formControlName="fechaAlta"
-      [attr.min]="(fechaMin | date :'yyyy-MM-dd')"
-    />
-    @if (campoInvalido('fechaAlta','required')) {
-      <span>Es obligatorio</span>
-    }
-  </div>
+    <div>
+        <label for="fechaAlta">Fecha de adquisición</label>
+        <input type="date" id="fechaAlta" name="fechaAlta" class="obligatorio"formControlName="fechaAlta">
+        <span [hidden]="comprobar('fechaAlta','required')">Es obligatorio</span>
+        <span [hidden]="comprobar('fechaAlta','fechamin')">La fecha debe ser del "{{formulario.controls.fechaAlta.errors?.['fechamin']?.fechamin}}" en adelante</span>
+    </div>
 
-  <div>
-    <input type="submit" [value]="mensaje" [disabled]="form.invalid" />
-    <input type="reset" value="Borrar" (click)="form.reset()" />
-  </div>
+    <div>
+        <input type="submit" value="{{mensaje}}" [disabled]="formulario.invalid">
+        <input type="reset" value="Borrar">
+    </div>
+    
 </form>
