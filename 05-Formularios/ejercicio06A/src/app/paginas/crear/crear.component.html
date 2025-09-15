@@ -1,1 +1,14 @@
-<p>crear works!</p>
+<h2>Añadir nuevo producto</h2>
+<div id="formulario">
+  <detalle-pantalla 
+    (nuevosDatos)="datosRecibidos($event)" 
+    [mensaje]="'Aceptar'"
+    [producto]="producto"/>
+</div>
+
+@if(bien()) {
+  <p>El producto se ha creado correctamente.</p>
+}
+@if(mal()) {
+  <p class="error">No he podido crear el producto. Tal vez la referencia ya exista.</p>
+}

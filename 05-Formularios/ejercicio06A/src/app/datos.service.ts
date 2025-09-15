@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Producto } from './models/producto';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DatosService {
   private lista:Producto[]=[
     new Producto("SIG01","Sigma 344 Especial",200.98,'2001-01-23'),
