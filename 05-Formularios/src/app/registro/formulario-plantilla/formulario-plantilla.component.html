@@ -1,53 +1,80 @@
 <h2>Nuevo registro (plantilla)</h2>
 <div id="contenido">
     <div class="formulario">
-        <form #formulario="ngForm">
+        <form #formulario="ngForm" (ngSubmit)="enviarDatos(formulario)">
           <div>
             <label for="id">Identificador</label>
-            <input type="number" id="id" name="id" class="corto" [(ngModel)]="dato.id" #identificador="ngModel">
+            <input type="number" id="id" name="id" class="corto" [(ngModel)]="dato.id" #identificador="ngModel" required min="1" step="100">
+            <span [hidden]="identificador.valid || identificador.pristine || !identificador.hasError('required')">Es obligatorio</span>
+            <span [hidden]="identificador.valid || identificador.pristine || !identificador.hasError('min')">El valor mínimo es {{identificador.errors?.['min']?.min}}</span>
           </div>
 
           <div>
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" [(ngModel)]="dato.nombre" #nombre="ngModel">
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="dato.nombre" #nombre="ngModel" required minlength="3" maxlength="40">
+            @if(nombre.invalid && nombre.dirty && nombre.errors?.['minlength']) {
+              <span>El tamaño mínimo es {{nombre.errors?.['minlength']?.requiredLength}}</span>
+            }
+            @if(nombre.invalid && nombre.dirty && nombre.errors?.['required']) {
+              <span>Es obligatorio</span>
+            }
          </div>
           
           <div>
             <label for="apellidos">Apellidos</label>
-            <input type="text" id="apellidos" name="apellidos" [(ngModel)]="dato.apellidos" #apellido="ngModel">
+            <input type="text" id="apellidos" name="apellidos" [(ngModel)]="dato.apellidos" #apellido="ngModel" required minlength="3" maxlength="80">
+            <span [hidden]="comprobar(apellido,'minlength')">El tamaño mínimo es {{apellido.errors?.['minlength']?.requiredLength}}</span>
+            <span [hidden]="comprobar(apellido,'required')">Es obligatorio</span>
          </div>
       
           <div>
             <label for="correo">Correo electrónico</label>
-            <input type="text" id="correo" name="correo" [(ngModel)]="dato.correo" #correo="ngModel">
+            <input type="text" id="correo" name="correo" [(ngModel)]="dato.correo" #correo="ngModel" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+            <span [hidden]="comprobar(correo,'required')">Es obligatorio</span>
+            <span [hidden]="comprobar(correo,'pattern')">No tiene aspecto de correo</span>
           </div>
           
           <div>
             <label for="fecha">Fecha de incorporación</label>
-            <input type="date" id="fecha" name="fecha" class="corto" [(ngModel)]="dato.fecha" #fecha="ngModel">  
+            <input type="date" id="fecha" name="fecha" class="corto" [(ngModel)]="dato.fecha" #fecha="ngModel" required min="{{fechaMin() | date: 'yyyy-MM-dd'}}">  
+            <span [hidden]="comprobar(fecha,'required')">Es obligatorio</span>
           </div>
          
           <div>
             <label for="salario">Salario medio anual</label>
-            <input type="number" id="salario" name="salario" class="corto" [(ngModel)]="dato.salario" #salario="ngModel">  
+            <input type="number" id="salario" name="salario" class="corto" [(ngModel)]="dato.salario" #salario="ngModel" min="12000" max="100000">  
+            @if(!comprobar(salario,'min')) {
+              <span>El valor mínimo es {{salario.errors?.['min']?.min}}</span>
+            }
+            @if(!comprobar(salario,'max')) {
+              <span>El valor máximo es {{salario.errors?.['max']?.max}}</span>
+            }
          </div>
          
           <div>
             <label for="tipo">Tipo</label>
-            <select id="tipo" name="tipo" class="corto" [(ngModel)]="dato.tipo" #tipo="ngModel">
+            <select id="tipo" name="tipo" class="corto" [(ngModel)]="dato.tipo" #tipo="ngModel" required>
               @for(tipo of Tipo | keyvalue; track tipo.value){
                   <option value="{{tipo.value}}">{{tipo.key.substr(0,1).toUpperCase()}}{{tipo.key.substr(1).toLowerCase()}}</option>
               }
             </select>
           </div>
          
-          <input type="submit" value="Registrar nueva persona">
+          <input type="submit" value="Registrar nueva persona" [disabled]="formulario.invalid">
         </form>
       </div>
 
 
     
       <div class="parrafo">
+        @if(mensajeEnviado()) {
+          <h2 class="bien">Los datos se han guardado correctamente.</h2>
+        }
+       
+        @if(mensajeError()) {
+          <h2 class="mal">Los datos no se han almacenado. El identificador ya existe.</h2>
+        }
+        
         <p> Los datos leídos del formulario son:</p>
         <div class="fila">
         <p>
@@ -106,7 +133,3 @@
       </div>
 
 </div>
-
-
-
-  

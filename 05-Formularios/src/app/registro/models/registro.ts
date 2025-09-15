@@ -11,8 +11,10 @@ export class Registro {
 }
 
 export enum Tipo {
+    EXPERTISIMO = 'ME',
     EXPERTO='E', 
     MEDIO='M', 
     PRINCIPIANTE='P', 
-    DESCONOCIDO='D'
+    DESCONOCIDO='D',
+    NOOB ='N'
 }

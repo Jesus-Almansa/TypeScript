@@ -1,13 +1,13 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Registro, Tipo } from '../models/registro';
-import { KeyValuePipe } from '@angular/common';
+import { DatePipe, KeyValuePipe, NgFor } from '@angular/common';
 import { DatosService } from '../datos.service';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, NgForm, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'app-formulario-plantilla',
   standalone: true,
-  imports: [KeyValuePipe, FormsModule],
+  imports: [KeyValuePipe, FormsModule, DatePipe],
   templateUrl: './formulario-plantilla.component.html',
   styleUrls: ['./formulario-plantilla.component.css', '../estilos/formulario.css']
 })
@@ -19,4 +19,26 @@ export class FormularioPlantillaComponent  {
   readonly Tipo=Tipo;
   private datos=inject(DatosService);
   dato:Registro=new Registro(null,null,null,null,null,null,Tipo.DESCONOCIDO);
+  fechaMin=signal(new Date(Date.now()-365*24*3600*1000));
+
+  mensajeEnviado=signal(false);
+  mensajeError=signal(false);
+
+  comprobar(campo:NgModel, propiedad:string) {
+    return campo.valid || campo.pristine || !campo.errors?.[propiedad]
+  }
+
+  enviarDatos(formulario:NgForm) {
+    if (formulario.invalid) return;
+
+    if (this.datos.addRegistro(this.dato)) {
+      formulario.reset();
+      this.mensajeEnviado.set(true);
+      this.mensajeError.set(false);
+    }
+    else {
+      this.mensajeEnviado.set(false);
+      this.mensajeError.set(true);
+    }
+  }
 }
