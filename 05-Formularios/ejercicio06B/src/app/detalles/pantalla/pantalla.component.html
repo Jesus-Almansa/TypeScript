@@ -1,36 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="hacerSubmit()">
+  <div>
+    <label for="referencia">Referencia de producto</label>
+    <input type="text" id="referencia" formControlName="referencia" class="corto" />
+    @if (campoInvalido('referencia','minlength')) {
+      <span>El tamaño mínimo es {{ form.get('referencia')?.errors?.['minlength']?.requiredLength }}</span>
+    }
+    @if (campoInvalido('referencia','required')) {
+      <span>Es obligatorio</span>
+    }
+  </div>
 
-<form (ngSubmit)="hacerSubmit(formulario)" #formulario="ngForm">
-    <div>
-        <label for="referencia">Referencia de producto</label>
-        <input type="text" id="referencia" name="referencia" class="corto" required="true"  minlength="4" maxlength="8" #referencia="ngModel" [(ngModel)]="producto.referencia">
-        <span [hidden]="comprobar(referencia,'minlength')">El tamaño mínimo es {{referencia.errors?.['minlength']?.requiredLength}}</span>
-        <span [hidden]="comprobar(referencia,'required')">Es obligatorio</span>
-    </div>
+  <div>
+    <label for="nombre">Nombre de producto</label>
+    <input type="text" id="nombre" formControlName="nombre" />
+    @if (campoInvalido('nombre','minlength')) {
+      <span>El tamaño mínimo es {{ form.get('nombre')?.errors?.['minlength']?.requiredLength }}</span>
+    }
+    @if (campoInvalido('nombre','required')) {
+      <span>Es obligatorio</span>
+    }
+  </div>
 
-    <div>
-        <label for="nombre">Nombre de producto</label>
-        <input type="text" id="nombre" name="nombre" required minlength="3" maxlength="40" #nombre="ngModel" [(ngModel)]="producto.nombre">
-        <span [hidden]="comprobar(nombre,'minlength')">El tamaño mínimo es {{nombre.errors?.['minlength']?.requiredLength}}</span>
-        <span [hidden]="comprobar(nombre,'required')">Es obligatorio</span>
-    </div>
-    
-    <div>
-        <label for="precio">Precio de compra</label>
-        <input type="number" id="precio" name="precio" required min="10" max="99999" #precio="ngModel" [(ngModel)]="producto.precio">
-        <span [hidden]="comprobar(precio,'min')">El precio mínimo es {{precio.errors?.['min']?.min}}</span>
-        <span [hidden]="comprobar(precio,'max')">El precio máximo es {{precio.errors?.['max']?.max}}</span>
-        <span [hidden]="comprobar(precio,'required')">Es obligatorio</span>
-    </div>
+  <div>
+    <label for="precio">Precio de compra</label>
+    <input type="number" id="precio" formControlName="precio" />
+    @if (campoInvalido('precio','min')) {
+      <span>El precio mínimo es {{ form.get('precio')?.errors?.['min']?.min }}</span>
+    }
+    @if (campoInvalido('precio','max')) {
+      <span>El precio máximo es {{ form.get('precio')?.errors?.['max']?.max }}</span>
+    }
+    @if (campoInvalido('precio','required')) {
+      <span>Es obligatorio</span>
+    }
+  </div>
 
-    <div>
-        <label for="fechaAlta">Fecha de adquisición</label>
-        <input type="date" id="fechaAlta" name="fechaAlta" required min="{{fechaMin | date :'yyyy-MM-dd'}}" #fechaAlta="ngModel" [(ngModel)]="producto.fechaAlta">
-        <span [hidden]="comprobar(fechaAlta,'required')">Es obligatorio</span>
-    </div>
+  <div>
+    <label for="fechaAlta">Fecha de adquisición</label>
+    <input
+      type="date"
+      id="fechaAlta"
+      formControlName="fechaAlta"
+      [attr.min]="(fechaMin | date :'yyyy-MM-dd')"
+    />
+    @if (campoInvalido('fechaAlta','required')) {
+      <span>Es obligatorio</span>
+    }
+  </div>
 
-    <div>
-        <input type="submit" value="{{mensaje}}" [disabled]="formulario.invalid">
-        <input type="reset" value="Borrar">
-    </div>
-    
+  <div>
+    <input type="submit" [value]="mensaje" [disabled]="form.invalid" />
+    <input type="reset" value="Borrar" (click)="form.reset()" />
+  </div>
 </form>
