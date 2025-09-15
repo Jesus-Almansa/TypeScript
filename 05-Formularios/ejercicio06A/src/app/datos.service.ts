@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Producto } from './modelo/producto';
+import { Producto } from './models/producto';
 
 @Injectable()
 export class DatosService {
@@ -8,7 +8,9 @@ export class DatosService {
     new Producto("SIG02","Sigma 43F tres velocidades",145,'2006-02-24'),
     new Producto("VOL01","Volcadora Taur F-34",1300,'2006-05-14'),
     new Producto("TER05","Terminadora LIT-34",900.56,'2009-12-02'),
-    new Producto("ASE45","Asertadora Decon",1900,'2008-05-09')
+    new Producto("ASE45","Asertadora Decon",1900,'2008-05-09'),
+    new Producto("GOTY2024","Balatro",10,'2024-02-20'),
+    new Producto("GOTY2025","Silson",20,'2025-09-04')
   ];
 
 /* Al ser una simulación y utilizar el mismo array (con las MISMAS REFERENCIAS) en las
