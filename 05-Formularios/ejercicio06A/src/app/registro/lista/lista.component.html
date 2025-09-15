@@ -1,0 +1,30 @@
+<h2>Listado de personas registradas</h2>
+@if(lista().length!=0) {
+    <table>
+        <thead>
+            <tr>
+            <td>Identificador</td> 
+            <td>Nombre completo</td> 
+            <td>Correo electrónico</td> 
+            <td>Fecha de entrada</td> 
+            <td>Salario anual</td> 
+            <td>Tipo</td> 
+            </tr>
+        </thead>
+        <tbody>
+            @for (r of lista(); track r.id) {
+                <tr>
+                    <td>{{r.id}}</td>
+                    <td>{{r.nombre}} {{r.apellidos}}</td>
+                    <td>{{r.correo}}</td>
+                    <td>{{r.fecha | date: 'dd-MM-yyyy'}}</td>
+                    <td>{{r.salario}}</td>
+                    <td>{{r.tipo}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@else {
+    <p>No hay datos.</p>
+}

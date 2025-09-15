@@ -1,0 +1,12 @@
+.fila {
+    margin-bottom: 1em;
+}
+
+.fila p:first-of-type {
+    min-width: 25%;
+    margin-right:2em;
+}
+
+.parrafo p {
+    margin: 2px 0px;
+}
