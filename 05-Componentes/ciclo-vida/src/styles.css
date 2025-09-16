@@ -1,0 +1,44 @@
+p, h1, h2, td, th, ul, li, ol, input, select, option, button, textarea {
+    font-family: Calibiy, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 12pt;
+    text-align: justify;
+    color:#202050;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 18pt;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #e0e0ff;
+    margin: 0px;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #303030;
+    padding: 0.4em;
+}
+
+thead td {
+    background-color: #303030;
+    color:#fafafa;
+    padding: 0.5em;
+    font-weight: bold;
+}
