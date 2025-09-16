@@ -1,0 +1,59 @@
+@if(planeta==null) {
+    <h2>No ha seleccionado ninguno</h2>
+}
+@else {
+    <h2>{{planeta.castellano}}</h2> 
+    <table>
+        <tr>
+            <td>Inglés / Francés</td>
+            <td>{{planeta.ingles}} / {{planeta.frances}}</td>
+        </tr>
+        <tr>
+            <td>Satélites</td>
+            <td>{{textoSatelites(planeta.lunas)}}</td>
+        </tr>
+        <tr>
+            <td>Radio</td>
+            <td>{{planeta.radioMedio | number:'1.3-6': 'es'}}</td>
+        </tr>
+        <tr>
+            <td>Gravedad</td>
+            <td>{{planeta.gravedad | number:'1.2': 'es'}}</td>
+        </tr>
+        <tr>
+            <td>Masa</td>
+            <td>{{planeta.masa.valor | number:'1.3-6': 'es'}} x 10<span class="exponente">{{planeta.masa.exponente}}</span></td>
+        </tr>
+        <tr>
+            <td>Volumen</td>
+            <td>{{planeta.volumen.valor | number:'1.3-6': 'es'}} x 10<span class="exponente">{{planeta.volumen.exponente}}</span></td>
+        </tr>
+        <tr>
+            <td>Inclinación</td>
+            <td>{{planeta.inclinacion | number:'1.3-6': 'es'}}</td>
+        </tr>
+        <tr>
+            <td>Excentricidad</td>
+            <td>{{planeta.excentricidad | number:'1.3-6': 'es'}}</td>
+        </tr>
+        <tr>
+            <td>Tipo</td>
+            <td>
+                @switch (planeta.tipo) {
+                    @case(0) {Planeta}
+                    @case(1) {Planeta Enano}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="sumar()">Sumar</button><br>
+                <button (click)="restar()">Restar</button>
+            </td>
+            <td class="especial">
+                <h2>{{planeta.puntuacion}}</h2>
+             </td>
+        </tr>
+    </table>
+
+}

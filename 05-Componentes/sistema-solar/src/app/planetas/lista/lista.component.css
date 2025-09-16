@@ -1,0 +1,21 @@
+td:hover {
+    cursor:pointer;
+    background-color: #d0d0e0;
+}
+
+div {
+    float:left;
+    box-sizing: border-box;
+}
+
+div:nth-of-type(1) {
+    width: 15%;
+}
+
+div:nth-of-type(2) {
+    width: 80%;
+}
+
+.limpiar {
+    clear: both;
+}

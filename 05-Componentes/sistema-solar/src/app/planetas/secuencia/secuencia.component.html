@@ -1,0 +1,6 @@
+<h1>Detalle de planetas</h1>
+<p>
+    <button (click)="anterior()">Anterior</button>
+    <button (click)="siguiente()">Siguiente</button>
+</p>
+<app-detalle [planeta]="planetaSeleccionado" (datosCambiados)="nuevaPuntuacion($event)"></app-detalle>

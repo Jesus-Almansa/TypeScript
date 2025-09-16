@@ -1,0 +1,17 @@
+<h1>Listado de planetas</h1>
+<div>
+    <table>
+        <tbody>
+            @for(p of listaResumen; track p.id) {
+                <tr>
+                    <td (click)="seleccionar(p.id)">
+                        {{p.castellano}}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <app-detalle [planeta]="planetaSeleccionado" (datosCambiados)="nuevaPuntuacion($event)"></app-detalle>
+</div>

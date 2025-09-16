@@ -1,0 +1,21 @@
+.exponente {
+    vertical-align: super;
+    font-size: 0.7em;
+}
+
+tr td:last-of-type {
+    min-width: 12em;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+.especial {
+    vertical-align: middle;
+}
+
+.especial h2 {
+    margin: 0px;
+    text-align: center;
+}
