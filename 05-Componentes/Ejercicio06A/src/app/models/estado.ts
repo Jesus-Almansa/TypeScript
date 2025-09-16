@@ -1,0 +1,3 @@
+export enum Estado {
+  OPERANDOUNO, OPERANDODOS, RESULTADO
+}

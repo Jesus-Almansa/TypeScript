@@ -1,0 +1,15 @@
+button {
+    padding: 0.5em;
+    width: 2.5em;
+    text-align: center;
+    border:1px solid #ddd;
+    border-radius: 0.5em;
+}
+
+.borrar {
+    background-color: #ffe0e0;
+}
+
+tr td:last-of-type button{
+    background-color: #e0e0ff;
+}
