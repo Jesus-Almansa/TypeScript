@@ -14,25 +14,25 @@ import { Planeta } from '../models/planeta';
 export class SecuenciaComponent {
   listaResumen:Resumen[]=[];
   planetaSeleccionado:Planeta | null=null;
-  posiciónActual=0;
+  posicionActual=0;
 
   constructor(private datos:DatosService) {}
 
   ngOnInit() {
     this.listaResumen=this.datos.getResumenPlanetas();
-    this.planetaSeleccionado=this.datos.getPlaneta(this.listaResumen[this.posiciónActual].id);
+    this.planetaSeleccionado=this.datos.getPlaneta(this.listaResumen[this.posicionActual].id);
   }
 
   anterior() {
-    if (this.posiciónActual==0) return;
-    this.posiciónActual--;
-    this.planetaSeleccionado=this.datos.getPlaneta(this.listaResumen[this.posiciónActual].id);
+    if (this.posicionActual==0) return;
+    this.posicionActual--;
+    this.planetaSeleccionado=this.datos.getPlaneta(this.listaResumen[this.posicionActual].id);
   }
 
   siguiente() {
-    if (this.posiciónActual==this.listaResumen.length-1) return;
-    this.posiciónActual++;
-    this.planetaSeleccionado=this.datos.getPlaneta(this.listaResumen[this.posiciónActual].id);
+    if (this.posicionActual==this.listaResumen.length-1) return;
+    this.posicionActual++;
+    this.planetaSeleccionado=this.datos.getPlaneta(this.listaResumen[this.posicionActual].id);
   }
 
   nuevaPuntuacion(cantidad:number) {
