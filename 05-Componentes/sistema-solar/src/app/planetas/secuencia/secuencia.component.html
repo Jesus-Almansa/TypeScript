@@ -1,6 +1,6 @@
 <h1>Detalle de planetas</h1>
 <p>
-    <button (click)="anterior()">Anterior</button>
-    <button (click)="siguiente()">Siguiente</button>
+    <button (click)="anterior()"  [disabled]="posicionActual === 0">Anterior</button>
+    <button (click)="siguiente()" [disabled]="posicionActual === listaResumen.length - 1">Siguiente</button>
 </p>
 <app-detalle [planeta]="planetaSeleccionado" (datosCambiados)="nuevaPuntuacion($event)"></app-detalle>
