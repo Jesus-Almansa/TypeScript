@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Planeta, TipoPlaneta } from './models/planeta';
 import { Resumen } from './models/resumen';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DatosService {
   private lista:Planeta[];
 
