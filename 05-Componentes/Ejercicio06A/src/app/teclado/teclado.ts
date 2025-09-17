@@ -10,7 +10,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class TecladoComponent {
   @Output() teclaPulsada=new EventEmitter<string>();
 
-  botonPulsado(tecla:string) {
+  enviarInput(tecla:string) {
     this.teclaPulsada.emit(tecla);
   }
 }

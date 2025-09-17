@@ -8,5 +8,5 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './pantalla.css'
 })
 export class PantallaComponent {
-  @Input() textoPantalla: string = '';
+  @Input() textoEntrada: string = '';
 }
