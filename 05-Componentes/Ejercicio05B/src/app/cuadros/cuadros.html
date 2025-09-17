@@ -1,0 +1,11 @@
+<div>
+    @if(tituloInput!='') {
+        <h2>{{tituloInput}}</h2> 
+    }
+    @else {
+       <ng-content select="[titulo]"></ng-content> 
+    }
+    
+    <hr>
+    <ng-content></ng-content>
+</div>

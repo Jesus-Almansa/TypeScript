@@ -1,0 +1,13 @@
+<h1>Listado del estado de las calculadoras</h1>
+
+<h2>
+    @for (calculadora of lista; track $index) {
+        <h2>{{calculadora.identificador}}</h2>
+        <!-- <p> Identificador {{calculadora.identificador}}</p> -->
+        <p> Operando uno <b>{{calculadora.operandoUno}}</b></p>
+        <p> Operando dos <b>{{calculadora.operandoDos}}</b></p>
+        <p> Operacion <b>{{calculadora.operacion}}</b></p>
+        <p> Estado <b>{{calculadora.estado}}</b></p>
+    }
+    
+</h2>

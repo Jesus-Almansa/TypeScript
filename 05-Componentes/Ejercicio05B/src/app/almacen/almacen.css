@@ -1,0 +1,6 @@
+table {
+    margin-bottom: 2em;
+}
+tr td:first-of-type {
+    padding-right: 1em;
+}

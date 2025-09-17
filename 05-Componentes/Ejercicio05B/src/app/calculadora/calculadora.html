@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <p>Calculadora {{identificador}}</p>
+    </tr>
+    <tr>
+        <td>
+            <app-pantalla [textoEntrada]="textoPantalla"></app-pantalla>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <app-teclado (teclaPulsada)="teclaPulsada($event)"></app-teclado>
+        </td>
+    </tr>
+
+</table>
+
+<!-- <p>Calculadora {{identificador}}</p> -->
