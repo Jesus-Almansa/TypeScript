@@ -1,0 +1,28 @@
+p, h1, h2, td, th, ul, li, ol, input, select, option, button, label {
+    font-family: Calibiy, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 12pt;
+    text-align: justify;
+    color:#303030;
+    margin: 0px;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 16pt;
+}
+
+body {
+    background-color: #fafafa;
+    margin: 0px;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+h1,h2,p,ul {
+    margin: 0.5em auto;
+}
