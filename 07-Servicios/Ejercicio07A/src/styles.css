@@ -32,12 +32,12 @@ table {
 }
 
 td {
-    border: 1px solid #333;
+    border: 1px solid #ccc;
     padding: 0.4em;
 }
 
 thead td {
-    background-color: #ccd;
+    background-color: #cdc;
     padding: 0.5em;
     font-weight: bold;
 }
