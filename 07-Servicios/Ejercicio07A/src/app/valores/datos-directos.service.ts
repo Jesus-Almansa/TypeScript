@@ -81,4 +81,19 @@ export class DatosDirectosService {
     
     return -1;
   }
+
+  crear(valor:Valor):Observable<boolean> {
+    let dato$=new Subject<boolean>();
+    setTimeout(()=>{
+      const indice=this.buscarIndiceValor(valor.id);
+      if (indice!=-1) dato$.error(false);
+      else if (Math.random()>0.5) {
+        this.listaRecuperadaDeUnServidor.push(new Valor(valor.id, valor.nombre, valor.precio));
+        dato$.next(true);
+        dato$.complete();
+      }
+      else dato$.error(false);
+    },1000);
+    return dato$;
+  }
 }
