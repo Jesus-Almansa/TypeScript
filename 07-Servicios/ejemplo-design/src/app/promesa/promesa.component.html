@@ -1,0 +1,42 @@
+<h2>Ejemplo de lectura asíncrona con una promesa</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean consequat odio in tincidunt ultricies. Fusce pharetra mi vel odio egestas, et laoreet augue malesuada. Pellentesque sit amet accumsan est. Suspendisse venenatis quam et consequat vestibulum. Nulla ornare ultricies augue. Ut consectetur enim eget mi venenatis, sit amet pulvinar diam posuere. Nunc accumsan, ex et tempus convallis, leo est maximus ante, non rutrum ante lorem in ex. Pellentesque condimentum vestibulum lectus, sit amet lobortis ligula volutpat eget.</p>
+<p>
+        <button (click)="leer()" [disabled]="esperando()">Leer</button> 
+        &nbsp;
+        <button (click)="borrar()">Borrar</button>
+</p>
+
+<table [ngClass]="{enEspera: esperando()}">
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Valor</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for(valor of lista(); track $index) {
+            <tr>
+                <td>{{valor.nombre}}</td>
+                <td>{{valor.precio}}</td>
+            </tr>
+           }
+           @empty {
+            <tr>
+                <td colspan="2">
+                    @if(esperando()) {
+                        ... esperando respuesta ...
+                    }
+                    @else if(error()) {
+                        <span class="error">Se ha producido un error. Por favor, inténtelo de nuevo</span>
+                    }
+                    @else {
+                        No se ha solicitado nada al servidor
+                    }
+                    
+                </td>
+            </tr>
+           }
+    </tbody>
+</table>
+
+<p>Maecenas nec enim sit amet enim fermentum gravida in ornare lacus. Vestibulum euismod, dui at convallis aliquet, libero elit tincidunt elit, quis accumsan libero neque vitae felis. Ut sed faucibus quam, at lacinia dui. Duis ut lorem lectus. Mauris aliquam nisl non est malesuada vulputate. Nunc faucibus nisi at semper bibendum. Ut sit amet elit porta ex maximus interdum eget a est. Vivamus a arcu suscipit, sodales nulla et, commodo elit. Proin nec ligula semper ligula tristique condimentum sed nec quam. Donec euismod cursus dictum.</p>
