@@ -1,0 +1,49 @@
+button, input[type=submit]{
+    padding: 0.5em;
+    border-radius: 6px;
+    text-align: center;
+    border:1px solid #ccc;
+    cursor:pointer;
+    background-color: #cdc;
+}
+
+input , select, option {
+    padding: 0.5em;
+    border-radius: 6px;
+    border:1px solid #ccc;
+}
+
+select {
+    margin-right: 2em;
+}
+
+input.ng-invalid.ng-dirty {
+    border-color:red;
+    background-color: #fff0f0;
+}
+
+input[type=submit]:disabled {
+    color:#cdc;
+    background-color: #efe;
+    cursor: default;
+}
+
+.enEspera {
+    opacity: 0.5;
+}
+
+.error {
+    color:red;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.grande {
+    width: 15em;
+}
+
+.pequeño {
+    width: 5em;
+}

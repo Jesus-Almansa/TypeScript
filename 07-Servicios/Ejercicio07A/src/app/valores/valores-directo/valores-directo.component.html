@@ -1,0 +1,54 @@
+<h2>Ejemplo con observables directos</h2>
+<p>
+    El código es más simple, pero a medida que se compliquen las peticiones y los servicios tendremos que añadir 
+    "pegotes" de los que acabremos arrepintiéndonos. Si sabes que NUNCA vas a modificar el código añadiendo tareas
+    más complejas no es una mala opción. Yo soy pesimista y siempre pienso que al final todo se complica.
+</p>
+
+
+<table [ngClass]="{enEspera: esperando()}">
+    <thead>
+        <tr>
+            <td>Código</td>
+            <td>Nombre</td>
+            <td>Valor</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for(valor of valores(); track valor.id) {
+            <tr>
+                <td>{{valor.id}}</td>
+                <td>{{valor.nombre}}</td>
+                <td>{{valor.precio}}</td>
+                <td><button (click)="borrar(valor.id)" class="pequeño">borrar</button></td>
+            </tr>
+           }
+           @empty {
+            <tr>
+                <td colspan="4" class="centrado">
+                    @if(esperando()) {
+                        ... esperando respuesta ...
+                    }
+                    @else if(mal()) {
+                        <span class="error">No he podido recuperar datos del servidor</span>
+                    }
+                    @else {
+                        No se ha solicitado nada al servidor
+                    }
+                    
+                </td>
+            </tr>
+           }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="centrado"><button (click)="volverALeerTodo()" class="grande">Volver a leer todo</button></td>
+        </tr>
+    </tfoot>
+</table>
+
+@if(mal()) {
+    <p class="error">Se ha producido un error al ejecutar la solicitud. Por favor, repítala de nuevo más tarde.</p>
+}
+

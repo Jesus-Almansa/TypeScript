@@ -1,0 +1,105 @@
+<h2>
+  Crear utilizando el servicio <b>"datos-directos"</b>
+</h2>
+
+<p>
+  Este componente usa un servicio cuyos métodos devuelven directamente un observable que ejecuta "next", "error" y "complete". 
+  Por lo tanto el observable y sus suscripciones se invalidan después de cada uso, y hay que suscribirse una y otra vez, con cada
+  ejecución del método del servicio.
+</p>
+
+<h2>Crear nuevo valor (reactivo)</h2>
+
+<div id="contenido">
+  <div class="formulario">
+    <form [formGroup]="formulario" (ngSubmit)="crearValor()">
+      <table>
+        <tr>
+          <td><label for="codigo">Código</label></td>
+          <td>
+            <input type="text" id="codigo" name="codigo" class="obligatorio" formControlName="codigo">
+          </td>
+          <td>
+            <span [hidden]="formulario.controls.codigo.valid || formulario.controls.codigo.pristine || !formulario.controls.codigo.errors?.['required']">
+              Es obligatorio
+            </span>
+            <span [hidden]="formulario.controls.codigo.valid || formulario.controls.codigo.pristine || !formulario.controls.codigo.errors?.['minlength']">
+              El tamaño mínimo es {{formulario.controls.codigo.errors?.['minlength']?.requiredLength}}
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="nombre">Nombre</label></td>
+          <td>
+            <input type="text" id="nombre" name="nombre" class="obligatorio" formControlName="nombre">
+          </td>
+          <td>
+            <span [hidden]="formulario.controls.nombre.valid || formulario.controls.nombre.pristine || !formulario.controls.nombre.errors?.['required']">
+              Es obligatorio
+            </span>
+            <span [hidden]="formulario.controls.nombre.valid || formulario.controls.nombre.pristine || !formulario.controls.nombre.errors?.['minlength']">
+              El tamaño mínimo es {{formulario.controls.nombre.errors?.['minlength']?.requiredLength}}
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="valor">Valor</label></td>
+          <td>
+            <input type="text" id="valor" name="valor" class="obligatorio" formControlName="valor">
+          </td>
+          <td>
+            <span [hidden]="formulario.controls.valor.valid || formulario.controls.valor.pristine || !formulario.controls.valor.errors?.['required']">
+              Es obligatorio
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" style="text-align: center;">
+            <input type="submit" value="Crear nuevo valor" [disabled]="formulario.invalid">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <div class="parrafo">
+    <p> Los datos leídos del formulario son:</p>
+    <table class="fila">
+      <tr>
+        <td>Código:</td>
+        <td><b>{{formulario.controls.codigo.value}}</b></td>
+      </tr>
+      <tr>
+        <td>Nombre:</td>
+        <td><b>{{formulario.controls.nombre.value}}</b></td>
+      </tr>
+      <tr>
+        <td>Valor:</td>
+        <td><b>{{formulario.controls.valor.value}}</b></td>
+      </tr>
+    </table>
+
+    <p>Algunas propiedades del formulario son:</p>
+    <table class="fila">
+      <tr>
+        <td>status:</td>
+        <td><b>{{formulario.status}}</b></td>
+      </tr>
+      <tr>
+        <td>valid / invalid:</td>
+        <td><b>{{formulario.valid}} / {{formulario.invalid}}</b></td>
+      </tr>
+      <tr>
+        <td>pristine / dirty:</td>
+        <td><b>{{formulario.pristine}} / {{formulario.dirty}}</b></td>
+      </tr>
+      <tr>
+        <td>touched / untouched:</td>
+        <td><b>{{formulario.touched}} / {{formulario.untouched}}</b></td>
+      </tr>
+    </table>
+  </div>
+</div>

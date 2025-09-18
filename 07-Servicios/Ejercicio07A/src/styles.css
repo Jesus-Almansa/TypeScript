@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+p, h1, h2, td, th, ul, li, ol, input, select, option, button, label {
+    font-family: Calibiy, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 12pt;
+    text-align: justify;
+    color:#333;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 16pt;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #fafafa;
+    margin: 0px;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 30%;
+}
+
+td {
+    border: 1px solid #333;
+    padding: 0.4em;
+}
+
+thead td {
+    background-color: #ccd;
+    padding: 0.5em;
+    font-weight: bold;
+}
