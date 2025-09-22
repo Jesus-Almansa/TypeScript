@@ -1,0 +1,27 @@
+<h2>Lista de productos</h2>
+
+<p *ngFor="let p of productos;let indice=index" [ngClass]="{impar:indice % 2 !=0}">
+    <b>{{p.nombre}}</b> ({{p.id}}) <br>
+    {{p.precio}}
+
+    <span *ngIf="p.precio<4">
+        - barato
+    </span>
+    <span *ngIf="p.precio>=4 && p.precio<=30">
+        - normal
+    </span>
+    <span *ngIf="p.precio>30" class="aviso">
+        - caro
+    </span>
+    <br>
+    <!-- 
+        No quiero "span" dentro de span
+        No puedo usar ng-template dentro de un bucle o un if (no me deja anidarlas,y eso es lo que estoy haciendo)
+        Sólo me queda ngContainer
+    -->
+    <ng-container [ngSwitch]="p.estado">
+        <span *ngSwitchCase="'A'">Nuevo</span>
+        <span *ngSwitchCase="'B'">Reacondicionado</span>
+        <span *ngSwitchCase="'C'">Segunda mano</span>
+    </ng-container>
+</p>

@@ -1,0 +1,19 @@
+body {
+    background-color: #f0f0f0;
+}
+
+p, h1, h2, ul, li {
+    font-family: Calibry, Arial, Helvetica, sans-serif;
+    font-size:12pt;
+    text-align: justify;
+    font-weight: normal;
+    color:#333;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size:18pt;
+}

@@ -1,0 +1,15 @@
+<h2>Historial de fotos solicitadas (con módulos)</h2>
+<div id="contenido">
+    <div>
+            <p (click)="leerFoto(r.date)"*ngFor="let r of resumenes">
+                {{r.date}}<br>
+                <b>{{r.title}}</b>
+            </p>
+            <p *ngIf="resumenes.length==0">No hay datos</p>
+    </div>
+    <div>
+        <app-detalle [foto]="foto"></app-detalle>
+    </div>
+
+</div>
+

@@ -1,0 +1,12 @@
+
+    <h2 *ngIf="producto==null;else hayProducto">No se ha seleccionado ningún producto</h2>
+    <ng-template #hayProducto>
+        <h2>{{producto?.title}}</h2>
+        <p>Código: {{producto?.id}}. Precio: {{producto?.price}}</p>
+        <p>{{producto?.description}}</p>
+        <!-- Dibujo las imágenes pequeñas; aunque es una chapuce de diseño, no puedo controlar los datos.-->
+        <p>
+            <img src="{{url}}" width="200" height="200" *ngFor="let url of producto?.images">
+        </p>
+    </ng-template>
+

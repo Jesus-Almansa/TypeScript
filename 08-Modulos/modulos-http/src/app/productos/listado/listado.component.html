@@ -1,0 +1,23 @@
+<h2>Listado de productos (con módulos)</h2>
+<h2>No tiene sentido leer la lista con TODOS los datos de todos los productos, mostrar sólo un resumen  y después volver a solicitar TODOS 
+   los datos de un producto al hacer click en uno ellos. Se supone que el servidor tendrá métodos GET adecuados al tipo de solicitud; pero
+   como el servidor no es mío, uso lo que me ofrece para escribir el ejemplo.</h2>
+
+
+   <div id="contenedor">
+        <div id="lista">
+                <p (click)="leerProducto(p.id)" *ngFor="let p of productos">
+                    {{p.id}} / <b>{{p.title}}</b>
+                </p>
+                <p *ngIf="productos.length==0">No se ha recibido nada todavía.</p>
+
+            
+            <p class="error" *ngIf="mal">Se ha producido un error al realizar la operación. Por favor, repítala más tarde.</p>
+        </div>
+        <div id="detalle">
+            <app-detalle [producto]="producto"></app-detalle>
+        </div>
+
+   </div>
+
+

@@ -1,0 +1,17 @@
+
+    <h2 *ngIf="foto==null">No ha seleccionado ninguna foto</h2>
+
+    <!-- Con un "else" la sintaxis es un ROLLO. 
+        No se da cuenta de que nunca puede ser null, me obliga a poner "?." por todas partes,
+        lo que me obliga a cambiar la función "sanearReferencia"... puagh. -->
+    <div *ngIf="foto!=null">
+        <h2>{{foto.title}}</h2>
+        <h2>{{foto.date}}</h2>
+        <p>{{foto.explanation}}</p>
+        <p>
+                <iframe width="560" height="315"  [src]="sanearReferencia(foto.url)" *ngIf="foto.media_type=='video'" frameborder="0" allowfullscreen></iframe>
+                <img [src]="foto.url" *ngIf="foto.media_type!='video'">
+        </p>
+    </div>
+
+

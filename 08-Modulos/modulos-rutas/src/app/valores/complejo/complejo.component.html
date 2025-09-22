@@ -1,0 +1,44 @@
+<h2>Ejemplo con observables "infinitos" (con módulos)</h2>
+<p>
+    El uso de observables adicionales tiene ventajas e inconvenientes. Añade muchas líneas de estructura tanto en el componente como en 
+    el servicio, y para una aplicación sencilla tal vez no merezca la pena. A cambio separa totalmente la petición del consumo de la respuesta, 
+    y para tareas más complejas (las más habituales) organiza el programa y simplifica el mantenimiento. En general suelo decantarme por esta opción. 
+</p>
+
+<table [ngClass]="{enEspera: esperando}">
+    <thead>
+        <tr>
+            <td>Código</td>
+            <td>Nombre</td>
+            <td>Valor</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let valor of valores">
+                <td>{{valor.id}}</td>
+                <td>{{valor.nombre}}</td>
+                <td>{{valor.precio}}</td>
+                <td><button (click)="borrar(valor.id)" class="pequeño">borrar</button></td>
+            </tr>
+            <tr *ngIf="valores.length==0">
+                <td colspan="4" class="centrado">
+                    <span *ngIf="esperando;else noEspera"> ... esperando respuesta ...</span>
+                    <ng-template #noEspera>
+                        <span *ngIf="mal" class="error">No he podido recuperar datos del servidor</span>
+                        <span *ngIf="!mal">No se ha solicitado nada al servidor</span>
+                    </ng-template>
+                    
+                </td>
+            </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="centrado"><button (click)="volverALeerTodo()" class="grande">Volver a leer todo</button></td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<p class="error" *ngIf="mal">Se ha producido un error al ejecutar la solicitud. Por favor, repítala de nuevo más tarde.</p>
+

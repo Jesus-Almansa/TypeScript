@@ -1,0 +1,55 @@
+
+header, nav, footer {
+    margin: 0px;
+    background-color: #ccd;
+    padding: 0px 10%;
+}
+
+header, footer {
+    overflow: hidden;
+}
+
+footer {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0px;
+    bottom:0px;
+}
+
+footer p {
+    text-align: right;
+}
+
+nav a {
+    color:#333;
+}
+
+article {
+    padding-bottom: 2em;
+    margin: 5px 10%;
+}
+
+nav {
+    margin-top: 5px;
+}
+
+nav p, nav ul{
+    margin: 0px;
+    padding: 1em 0px;
+}
+
+/* ---------------------- Un menú simple -------------------- */
+nav li {
+    display: inline;
+    padding-right: 2em;
+}
+nav a {
+    text-decoration: none;
+    padding: 12px;
+}
+
+nav a:hover {
+    background-color: #dde
+}
+
