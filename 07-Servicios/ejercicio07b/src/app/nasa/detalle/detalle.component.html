@@ -1,0 +1,17 @@
+@if(foto==null) {
+    <h2>No ha seleccionado ninguna foto</h2>
+}
+@else {
+    <h2>{{foto.title}}</h2>
+    <h2>{{foto.date}}</h2>
+    <p>{{foto.explanation}}</p>
+    <p>
+        @if (foto.media_type=='video') {
+            <iframe width="560" height="315"  [src]="sanearReferencia(foto.url)" frameborder="0" allowfullscreen></iframe>
+        }
+        @else {
+            <img [src]="foto.url">
+        }
+    </p>
+}
+

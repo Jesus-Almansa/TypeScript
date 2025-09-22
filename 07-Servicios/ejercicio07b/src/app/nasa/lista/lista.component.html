@@ -1,0 +1,19 @@
+<h2>Historial de fotos solicitadas</h2>
+<div id="contenido">
+    <div>
+        @for(r of resumenes(); track $index) {
+            <p (click)="leerFoto(r.date)">
+                {{r.date}}<br>
+                <b>{{r.title}}</b>
+            </p>
+        }
+        @empty {
+            <p>No hay datos</p>
+        }
+    </div>
+    <div>
+        <app-detalle [foto]="foto()"></app-detalle>
+    </div>
+
+</div>
+

@@ -1,0 +1,16 @@
+p{
+    cursor: pointer;
+}
+
+div#contenido {
+    display: flex;
+}
+
+div#contenido div:first-of-type {
+    width: 25%;
+}
+
+div#contenido div:last-of-type {
+    margin-left: 5%;
+    width: 70%;
+}

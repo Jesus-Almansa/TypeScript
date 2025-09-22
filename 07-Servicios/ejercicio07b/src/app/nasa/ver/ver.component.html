@@ -1,0 +1,12 @@
+<h2>Foto del día</h2>
+<form #formulario="ngForm" (ngSubmit)="fechaEscogida(formulario)">
+    <input type="date" #fecha="ngModel" name="fecha" [(ngModel)]="campoFecha" required max="{{fechaMaxima()}}">
+    <input type="submit" value="Seleccionar" [disabled]="formulario.invalid">
+</form>
+
+<h2 class="error">{{error()}}</h2>
+@if(!error()) {
+    <app-detalle [foto]="foto()"></app-detalle>
+}
+
+
