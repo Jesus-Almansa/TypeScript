@@ -16,26 +16,26 @@ export class ValoresCrearComponent {
   private datos=inject(DatosDirectosService);
 
 
-  bienFormulario=signal(false);
-  malFormulario=signal(false);
-  esperandoFormulario=signal(false);
+  bien=signal(false);
+  mal=signal(false);
+  esperando=signal(false);
 
   valor = signal<Valor | null>(null);
 
   crear(valor:Valor | null) {
     if (valor==null) return;
 
-    this.bienFormulario.set(false);
-    this.malFormulario.set(false);
-    this.esperandoFormulario.set(true);
+    this.bien.set(false);
+    this.mal.set(false);
+    this.esperando.set(true);
 
     this.datos.crear(valor).subscribe({
-      next:estado=>this.bienFormulario.set(true),
+      next:estado=>this.bien.set(true),
       error:estado=>{
-        this.malFormulario.set(true);
-        this.esperandoFormulario.set(false);
+        this.mal.set(true);
+        this.esperando.set(false);
       },
-      complete:()=>{this.esperandoFormulario.set(false)}
+      complete:()=>{this.esperando.set(false)}
     });
 
   }
