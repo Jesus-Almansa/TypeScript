@@ -1,0 +1,21 @@
+<h2>
+    Modifica los datos del cliente
+</h2>
+
+<table [ngClass]="{enEspera: esperandoSelect()}">
+    <select [ngModel]="nombreSeleccionado()"
+            (ngModelChange)="seleccionarNombre($event)"
+            >
+    <option [ngValue]="null">-- Seleccionar cliente --</option>
+    @for (valor of valores(); track $index) {
+        <option value="{{valor.id}}">{{valor.nombre}}</option>
+    }
+    </select>
+</table>
+
+@if (esperandoSelect()) {
+  <div>Cargando…</div>
+} @else if (bienSelect()) {
+} @else if (malSelect()) {
+  <div class="error">Ha habido un error, prueba a recargar</div>
+}

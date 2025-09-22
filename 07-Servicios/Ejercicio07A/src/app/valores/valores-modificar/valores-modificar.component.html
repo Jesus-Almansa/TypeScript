@@ -1,1 +1,25 @@
-<p>valores-modificar works!</p>
+<app-select 
+  [valores]="valores"
+  [nombreSeleccionado]="nombreSeleccionado"
+  (valorChange)="seleccionar($event)"
+  [bienSelect]="bienSelect"
+  [malSelect]="malSelect"
+  [esperandoSelect]="esperandoSelect">
+</app-select>
+
+
+@if (nombreSeleccionado()) {
+<app-formulario 
+  [valor]="nombreSeleccionado" 
+  (valorChange)="modificar($event)"
+  [bienFormulario]="bienFormulario"
+  [malFormulario]="malFormulario"
+  [esperandoFormulario]="esperandoFormulario"
+  [mensajeBotonFormulario]="'Modificar valor'">
+</app-formulario>
+}
+<table>
+    <tr>
+        <td colspan="4" class="centrado"><button (click)="volverALeerTodo()" class="grande">Volver a leer todo</button></td>
+    </tr>
+</table>
