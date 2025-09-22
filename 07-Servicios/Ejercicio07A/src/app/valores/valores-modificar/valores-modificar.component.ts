@@ -57,31 +57,35 @@ export class ValoresModificarComponent {
     this.nombreModificar.set(v);
   }
 
-  modificar(valor: Valor | null) {
-    if (!valor) return;
+  modificar(valor:Valor | null) {
+    if (valor==null) return;
 
-    // Actualiza el objeto seleccionado
-    this.nombreModificar.set(valor);
-
-    // Actualiza la lista completa para que Angular detecte el cambio
+    this.nombreModificar.set({...valor}); // fuerza cambio de referencia
     this.valores.update(arr => arr.map(v => v.id === valor.id ? valor : v));
 
-    this.bienSelect.set(false);
-    this.malSelect.set(false);
-    this.esperandoSelect.set(true);
+    this.bienFormulario.set(false);
+    this.malFormulario.set(false);
+    this.esperandoFormulario.set(true);
 
-    this.datos.modificar(valor).subscribe({
-      next: () => {
-        this.bienSelect.set(true);
-        this.malSelect.set(false);
-        this.esperandoSelect.set(false);
-      },
-      error: () => {
-        this.bienSelect.set(false);
-        this.malSelect.set(true);
-        this.esperandoSelect.set(false);
-      }
-    });
+this.datos.modificar(valor).subscribe({
+  next: ok => {
+    if (ok) {
+      this.bienFormulario.set(true);
+      this.malFormulario.set(false);
+    } else {
+      this.bienFormulario.set(false);
+      this.malFormulario.set(true);
+    }
+    this.esperandoFormulario.set(false);
+  },
+  error: err => {
+    // aquí solo entrarás si hay un error real de red o similar
+    console.error(err);
+    this.bienFormulario.set(false);
+    this.malFormulario.set(true);
+    this.esperandoFormulario.set(false);
+  }
+});
   }
 
 }
