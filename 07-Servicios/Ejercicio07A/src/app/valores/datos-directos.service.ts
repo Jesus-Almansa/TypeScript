@@ -33,8 +33,8 @@ export class DatosDirectosService {
     ];
   }
 
-  private porcentajeDeError=0.4;
-  private tiempoDeRespuesta=1000;
+  private porcentajeDeError=0.2;
+  private tiempoDeRespuesta=500;
 
   leerTodos():Observable<Valor[]> {
     //No tiene sentido usar operadores de creación para generar una suscripción de un array que ya tienes. Sería más lógico
