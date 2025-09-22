@@ -24,12 +24,17 @@ export class DatosDirectosService {
   del servidor. */
   constructor() { 
     this.listaRecuperadaDeUnServidor=[
+      new Valor(1, "Balatro", 10),
       new Valor(10, "Ficme SL", 34.5),
       new Valor(20, "Aglutine SA", 334.45),
       new Valor(30, "Dormosa Limitada", 93.4),
       new Valor(40, "Aluminsa", 2.45),
       new Valor(50, "Fregaderos del Norte SA", 91.3),
-      new Valor(60, "Mármoles López SL", 92.3)
+      new Valor(60, "Mármoles López SL", 92.3),
+      new Valor(70, "Inmobiliaria La Casa", 12.5),
+      new Valor(80, "Construcciones Pujol", 54.6),
+      new Valor(90, "Desarrollos de Software SL", 123.45),
+      new Valor(100, "Comunicaciones Avanzadas SA", 87.9)
     ];
   }
 
