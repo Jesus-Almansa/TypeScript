@@ -1,4 +1,4 @@
-<form [formGroup]="formulario" (ngSubmit)="crear()">
+<form [formGroup]="formulario" (ngSubmit)="valor() ? modificar() : crear()">
 <table  [ngClass]="{enEspera: esperandoFormulario()}">
     <tr>
         <td>
@@ -26,7 +26,12 @@
     </tr>    
     <tr>
         <td colspan="2" class="centrado">
-            <input type="submit" [value]="mensajeBotonFormulario" class="grande" [disabled]="formulario.invalid ">
+            @if (!valor()) {
+                <input type="submit" [value]="mensajeBotonFormulario" class="grande" [disabled]="formulario.invalid">
+            }
+            @if (valor()) {
+                <input type="button" [value]="mensajeBotonFormulario" class="grande" [disabled]="formulario.invalid" (click)="modificar()">
+            }
         </td>
     </tr>
 </table>

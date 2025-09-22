@@ -1,6 +1,6 @@
 <app-select 
   [valores]="valores"
-  [nombreSeleccionado]="nombreSeleccionado"
+  [nombreSeleccionado]="nombreModificar"
   (valorChange)="seleccionar($event)"
   [bienSelect]="bienSelect"
   [malSelect]="malSelect"
@@ -8,9 +8,9 @@
 </app-select>
 
 
-@if (nombreSeleccionado()) {
+@if (nombreModificar()) {
 <app-formulario 
-  [valor]="nombreSeleccionado" 
+  [valor]="nombreModificar" 
   (valorChange)="modificar($event)"
   [bienFormulario]="bienFormulario"
   [malFormulario]="malFormulario"

@@ -25,7 +25,7 @@ export class ValoresModificarComponent {
   esperandoSelect = signal(false);
 
   valores = signal<Valor[]>([]);
-  nombreSeleccionado = signal<Valor | null>(null);
+  nombreModificar = signal<Valor | null>(null);
 
   ngOnInit(): void {
     this.volverALeerTodo();
@@ -54,13 +54,17 @@ export class ValoresModificarComponent {
   }
 
   seleccionar(v: Valor | null) {
-    this.nombreSeleccionado.set(v);
+    this.nombreModificar.set(v);
   }
 
   modificar(valor: Valor | null) {
     if (!valor) return;
 
-    this.nombreSeleccionado.set(valor);  // actualizar señal
+    // Actualiza el objeto seleccionado
+    this.nombreModificar.set(valor);
+
+    // Actualiza la lista completa para que Angular detecte el cambio
+    this.valores.update(arr => arr.map(v => v.id === valor.id ? valor : v));
 
     this.bienSelect.set(false);
     this.malSelect.set(false);
@@ -79,4 +83,5 @@ export class ValoresModificarComponent {
       }
     });
   }
+
 }

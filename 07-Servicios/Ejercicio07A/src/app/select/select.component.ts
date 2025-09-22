@@ -32,7 +32,4 @@ export class SelectComponent {
     console.log("select.component.ts: seleccionarNombre(): v=", v);
     this.valorChange.emit(v);     // notifica al padre
   }
-
-
-
 }
