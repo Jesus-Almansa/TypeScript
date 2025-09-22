@@ -32,14 +32,18 @@ export class DatosDirectosService {
       new Valor(60, "Mármoles López SL", 92.3)
     ];
   }
+
+  private porcentajeDeError=0.4;
+  private tiempoDeRespuesta=1000;
+
   leerTodos():Observable<Valor[]> {
     //No tiene sentido usar operadores de creación para generar una suscripción de un array que ya tienes. Sería más lógico
     //seguir con los "setTimeout" del video anterior. Pero quería mostrar un ejemplo "serio" de uso de RxJS.
     return of<Valor[]>(this.listaRecuperadaDeUnServidor)
       .pipe(
-        delay(1000),
+        delay(this.tiempoDeRespuesta),
         map(dato=>{
-          if (Math.random()>0.5) return dato;
+          if (Math.random()>this.porcentajeDeError) return dato;
           else throw new Error('Error simulado')
         })
       );
@@ -51,7 +55,7 @@ export class DatosDirectosService {
     setTimeout(()=>{
         const indice=this.buscarIndiceValor(id);
         if (indice==-1) dato$.error(54);
-        else if (Math.random()>0.5) {
+        else if (Math.random()>this.porcentajeDeError) {
           dato$.next(this.listaRecuperadaDeUnServidor[indice]);
           dato$.complete();
         }
@@ -65,7 +69,7 @@ export class DatosDirectosService {
     setTimeout(()=>{
       const indice=this.buscarIndiceValor(id);
       if (indice==-1) dato$.error(false);
-      else if (Math.random()>0.5) {
+      else if (Math.random()>this.porcentajeDeError) {
         this.listaRecuperadaDeUnServidor.splice(indice,1);
         dato$.next(true);
         dato$.complete();
@@ -87,8 +91,23 @@ export class DatosDirectosService {
     setTimeout(()=>{
       const indice=this.buscarIndiceValor(valor.id);
       if (indice!=-1) dato$.error(false);
-      else if (Math.random()>0.5) {
+      else if (Math.random()>this.porcentajeDeError) {
         this.listaRecuperadaDeUnServidor.push(new Valor(valor.id, valor.nombre, valor.precio));
+        dato$.next(true);
+        dato$.complete();
+      }
+      else dato$.error(false);
+    },1000);
+    return dato$;
+  }
+
+  modificar(valor:Valor):Observable<boolean> {
+    let dato$=new Subject<boolean>();
+    setTimeout(()=>{
+      const indice=this.buscarIndiceValor(valor.id);
+      if (indice==-1) dato$.error(false);
+      else if (Math.random()>this.porcentajeDeError) {
+        this.listaRecuperadaDeUnServidor[indice]=new Valor(valor.id, valor.nombre, valor.precio);
         dato$.next(true);
         dato$.complete();
       }
