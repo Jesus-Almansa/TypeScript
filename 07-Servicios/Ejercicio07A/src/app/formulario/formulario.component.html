@@ -5,7 +5,7 @@
             <label>Identificador</label>
         </td>
         <td>
-            <input type="number" formControlName="codigo" step="10" min="1" >
+            <input type="number" formControlName="id" step="10" min="1" >
         </td>
     </tr>
     <tr>
@@ -18,10 +18,10 @@
     </tr>
     <tr>
         <td>
-            <label>Valor</label>
+            <label>Precio</label>
         </td>
         <td>
-            <input type="number" formControlName="valor">
+            <input type="number" formControlName="precio">
         </td>
     </tr>    
     <tr>
@@ -35,14 +35,14 @@
 <div>
     <h3>Valores ingresados:</h3>
     <p>
-        codigo:<br>
+        id:<br>
         nombre:<br>
         valor:<br>
 </p>          
 <p>
-    <b>{{formulario.controls.codigo.value}}</b><br>
+    <b>{{formulario.controls.id.value}}</b><br>
     <b>{{formulario.controls.nombre.value}}</b><br>
-    <b>{{formulario.controls.valor.value}}</b><br>
+    <b>{{formulario.controls.precio.value}}</b><br>
 
     </p>
 </div>

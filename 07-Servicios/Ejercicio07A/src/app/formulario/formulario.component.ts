@@ -14,9 +14,9 @@ import { Valor } from '../valores/modelo/valor';
 export class FormularioComponent{
   
     formulario = new FormGroup({
-      codigo: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      id: new FormControl('', [Validators.required, Validators.minLength(2)]),
       nombre: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-      valor: new FormControl('', [Validators.required, Validators.min(1), Validators.max(100)])
+      precio: new FormControl('', [Validators.required, Validators.min(1), Validators.max(100)])
     });
 
     @Input() bienFormulario=signal(false);
@@ -29,12 +29,13 @@ export class FormularioComponent{
 
   crear() {
       if (this.formulario.invalid) return;
+      if (this.valor() != null) return;
 
       //Ha validado, por lo que estoy seguro de que los valores son correctos. 
       //Pero el compilador no lo sabe...
-      let valor=new Valor(Number(this.formulario.value.codigo), 
+      let valor=new Valor(Number(this.formulario.value.id), 
                           this.formulario.value.nombre || '', 
-                          Number(this.formulario.value.valor));
+                          Number(this.formulario.value.precio));
       this.valorChange.emit(valor);
   }
 
@@ -43,9 +44,9 @@ export class FormularioComponent{
     if (this.valor() == null) return;
     //Ha validado, por lo que estoy seguro de que los valores son correctos.
     //Pero el compilador no lo sabe...
-    let valor=new Valor(this.valor()?.id ?? 0, 
+    let valor=new Valor(Number(this.formulario.value.id), 
                         this.formulario.value.nombre || '', 
-                        Number(this.formulario.value.valor));
+                        Number(this.formulario.value.precio));
     this.valorChange.emit(valor);
   }
 
@@ -54,9 +55,9 @@ export class FormularioComponent{
     //Add '${implements OnChanges}' to the class.
     if (changes['valor'] && this.valor() != null) {
       this.formulario.setValue({
-        codigo: this.valor()?.id?.toString() ?? '',
+        id: this.valor()?.id?.toString() ?? '',
         nombre: this.valor()?.nombre?.toString() ?? '',
-        valor: this.valor()?.precio?.toString() ?? ''
+        precio: this.valor()?.precio?.toString() ?? ''
       });
     } else {
       this.formulario.reset();
