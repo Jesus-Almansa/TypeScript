@@ -3,14 +3,16 @@
 </h2>
 
 <table [ngClass]="{enEspera: esperandoSelect()}">
+
     <select [ngModel]="nombreSeleccionado()"
             (ngModelChange)="seleccionarNombre($event)"
             >
     <option [ngValue]="null">-- Seleccionar cliente --</option>
     @for (valor of valores(); track $index) {
-        <option value="{{valor.id}}">{{valor.nombre}}</option>
+        <option [ngValue]="valor">{{valor.nombre}}</option>
     }
     </select>
+    
 </table>
 
 @if (esperandoSelect()) {
