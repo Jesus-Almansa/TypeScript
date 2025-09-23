@@ -1,0 +1,14 @@
+<h2>Componente segundo</h2>
+<p>Proin finibus consequat magna vel hendrerit. Praesent vulputate a urna id tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque ipsum velit, accumsan vitae nunc laoreet, ullamcorper facilisis risus. Maecenas at posuere lacus. In eget velit ut lorem fermentum convallis eget quis sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In interdum nisi arcu, et ultricies velit commodo at.</p>
+<p>Ut consectetur luctus euismod. Suspendisse porttitor, metus eget volutpat congue, augue velit consequat eros, sed convallis urna lorem in nulla. Pellentesque venenatis ac ligula ut vulputate. Donec vitae nulla magna. Nunc sed lectus congue, sodales nunc quis, ornare diam. Maecenas vitae turpis pulvinar felis laoreet sollicitudin eget eget ipsum. Quisque nec condimentum velit. Proin ut massa commodo, pulvinar diam quis, semper est. Nunc eget metus vel felis sodales ullamcorper. Quisque enim sem, sagittis quis pharetra id, mattis in tortor. Ut at metus consequat, lobortis nibh quis, faucibus metus. Proin dapibus, urna vitae tempor hendrerit, ex massa convallis ipsum, vitae molestie augue urna non elit. Etiam lobortis neque id justo vestibulum semper. Maecenas quam nisl, iaculis a turpis sit amet, lacinia vehicula sem.</p>
+
+<p>
+    <button (click)="cambiarBloqueo()" class="grande">
+        @if(desbloquearSalida()) {
+            Puedes salir del componente a través del menú principal
+        }
+        @else {
+            <span class="error">Salida bloqueada (a no ser que escribas algo en la barra de direcciones y te vayas de aquí)</span>
+        }
+    </button>
+</p>

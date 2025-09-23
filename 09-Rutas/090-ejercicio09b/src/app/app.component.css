@@ -1,0 +1,106 @@
+
+header, nav, footer {
+    margin: 0px;
+    background-color: #cdc;
+    padding: 0px 10%;
+}
+
+header, footer {
+    overflow: hidden;
+}
+
+footer {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0px;
+    bottom:0px;
+}
+
+footer p {
+    text-align: right;
+}
+
+article {
+
+	display: flex;
+}
+
+article div {
+    box-sizing: border-box;
+    width: 33%;
+    padding: 0px 2em;
+}
+
+
+nav {
+    margin-top: 5px;
+}
+/* ---------------------- Un menú algo más complejo -------------------- */
+nav > ul {
+    padding-left: 0pxbotones;
+	padding-bottom: 5px;
+	height: 2.2em;
+	margin: 0px;
+}
+
+nav > ul li {
+	list-style:none;
+	margin: 0px;
+}
+
+nav > ul > li {
+	float:left;
+	padding-left:2em;
+}
+
+nav > ul > li:first-of-type {
+	padding-left:0px;
+}
+
+nav > ul li a {
+	background-color:#cdc;
+	display:block;
+	padding:10px 12px;
+	text-decoration: none;
+	margin: 0px;
+	text-align: left;
+}
+
+nav > ul li .flecha{
+	font-size: 9px;
+	padding-left: 6px;
+	display: none;
+}
+
+nav > ul li a:not(:last-child) .flecha {
+	display: inline;
+}
+
+nav > ul li a:hover {
+	background-color:#bcb;
+}
+
+nav > ul li {
+	position:relative;
+}
+
+nav > ul li ul {
+	display:none;
+	position:absolute;
+	min-width:140px;
+}
+
+nav > ul li:hover > ul {
+	display:block;
+	z-index: 10;
+}
+
+nav > ul li ul li ul {
+	right:-140px;
+	top:0;
+}
+
+.limpiar {
+	clear: both;
+}

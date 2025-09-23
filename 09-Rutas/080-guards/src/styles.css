@@ -1,0 +1,58 @@
+p, h1, h2, td, th, ul, li, ol, input, select, option, button, label {
+    font-family: Calibiy, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 12pt;
+    text-align: justify;
+    color:#303030;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 16pt;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #fafafa;
+    margin: 0px;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #303030;
+    padding: 0.4em;
+}
+
+thead td {
+    background-color: #303030;
+    color:#fafafa;
+    padding: 0.5em;
+    font-weight: bold;
+}
+.error {
+    color:red;
+}
+
+button {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border:1px solid #ccc;
+    text-align: center;
+    font-weight: bold;
+}
+
+.grande {
+     width: 20em;
+}

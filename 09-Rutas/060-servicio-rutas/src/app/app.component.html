@@ -1,0 +1,70 @@
+<header>
+  <h1>Ejemplo de rutas</h1>
+</header>
+
+<nav>
+	<ul>
+		<li>
+			<a href="#">Configuración inicial<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a routerLink="rojo">Rojo</a></li>
+				<li><a routerLink="verde">Verde</a></li>
+				<li><a routerLink="azul">Azul</a></li>
+			</ul>
+		</li>
+
+		<li>
+			<a href="#">Rutas hijas (children)<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a routerLink="/naranja/rojo">Rojo</a></li>
+				<li><a routerLink="/naranja/verde">Verde</a></li>
+				<li><a routerLink="/naranja/azul">Azul</a></li>
+			</ul>
+		</li>
+
+		<li><a routerLink="/negro">Carga diferida</a></li>
+
+		<li>
+			<a href="#">Rutas auxiliares<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a [routerLink]="[{outlets:{secundario:'rojo-sec'}}]">Rojo en auxiliar</a></li>
+				<li><a [routerLink]="[{outlets:{secundario:'azul-sec'}}]">Azul en auxiliar</a></li>
+				<li><a [routerLink]="[{outlets:{secundario:'verde-sec', 'primary':'negro'}}]">Negro en principal y verde en auxiliar</a></li>
+			</ul>
+		</li>
+
+		<li>
+			<a href="#">Datos estáticos (data)<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a routerLink="/verde-uno">Verde uno</a></li>
+				<li><a routerLink="/azul-dos">Azul dos</a></li>
+				<li><a routerLink="/azul-tres">Azul tres</a></li>
+			</ul>
+		</li>
+
+		<li>
+			<a href="#">Valores en la ruta<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a routerLink="/negro/saludo">Negro saludo</a></li>
+				<li><a routerLink="/negro/100">Negro 100</a></li>
+				<li><a [routerLink]="['negro',{valor:'prueba'}]">negro prueba</a></li>
+			</ul>
+		</li>
+
+	</ul>
+</nav>
+<p class="limpiar"></p>
+
+<div id="contenido">
+	<article>
+		<router-outlet></router-outlet>
+	</article>
+	<aside>
+		<router-outlet name="secundario"></router-outlet>
+	</aside>
+</div>
+
+<footer>
+<p>Ejemplo de pie de página</p>
+</footer>
+

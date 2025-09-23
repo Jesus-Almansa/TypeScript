@@ -1,0 +1,26 @@
+<header>
+  <h1>Ejercicio 09 A</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a [routerLink]="[{outlets:{derecha:'detalle-producto/', primary:'lista-producto'}}]">Productos</a></li>
+    <li><a [routerLink]="[{outlets:{derecha:'detalle-usuario/', primary:'lista-usuario'}}]">Usuarios</a></li>
+
+  </ul>
+</nav>
+
+<article>
+  <section id="lista">
+    <router-outlet></router-outlet>
+  </section>
+  
+  <section id="detalle">
+    <router-outlet name="derecha"></router-outlet>
+  </section>
+</article>
+
+<footer>
+  <p>Ejemplo de pie de página</p>
+</footer>
+

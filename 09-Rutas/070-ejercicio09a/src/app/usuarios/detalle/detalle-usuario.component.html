@@ -1,0 +1,20 @@
+<h2>Detalle de usuario</h2>
+
+<!-- Imagina escribir esto con la sintaxis tradicional-->
+@if(usuario==null) {
+    @if (error==true) {
+        <p class="error">Se ha producido un error. Por favor, inténtelo más tarde. O cambie de servidor gratuito.</p>
+    }
+    @else {
+        <h2>No ha solicitado datos</h2>
+    }
+}
+@else {
+    <p>
+        <b>{{usuario.name.firstname}} {{usuario.name.lastname}}</b>
+    </p>
+
+    <p>Login: {{usuario.username}}</p>
+    <p>Clave: {{usuario.password}}</p>
+    <p>Correo: {{usuario.email}}</p>
+}

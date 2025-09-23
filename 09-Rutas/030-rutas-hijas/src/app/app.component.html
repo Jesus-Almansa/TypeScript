@@ -1,0 +1,37 @@
+<header>
+  <h1>Ejemplo de rutas</h1>
+</header>
+
+<nav>
+	<ul>
+		<li>
+			<a href="#">Configuración inicial<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a routerLink="rojo">Rojo</a></li>
+				<li><a routerLink="verde">Verde</a></li>
+				<li><a routerLink="azul">Azul</a></li>
+			</ul>
+		</li>
+
+		<li>
+			<a href="#">Rutas hijas (children)<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a routerLink="/naranja/rojo">Rojo</a></li>
+				<li><a routerLink="/naranja/verde">Verde</a></li>
+				<li><a routerLink="/naranja/azul">Azul</a></li>
+			</ul>
+		</li>
+
+
+	</ul>
+</nav>
+<p class="limpiar"></p>
+
+<article>
+  <router-outlet></router-outlet>
+</article>
+
+<footer>
+<p>Ejemplo de pie de página</p>
+</footer>
+

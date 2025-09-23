@@ -1,0 +1,19 @@
+<h2>Uso de Router</h2>
+<p>Muestra perro, gato y jirafa</p>
+<p>
+    <button (click)="todosDeGolpe()">Todos a la vez</button>
+</p>
+<hr>
+
+<div>
+<p>Simula que tienes una lista de productos y que solicitas uno de ellos para que el componente de la derecha lo busque y lo dibuje. Es todo mentira, me limito a pasarle mediante rutas un 100, 200 300 ó 400.</p>
+<form #formulario="ngForm" (ngSubmit)="enviar(formulario)">
+    <select name="id" #id="ngModel" [(ngModel)]="valor" required>
+        <option value="100">El cien</option>
+        <option value="200">El doscientos</option>
+        <option value="300">El trescientos</option>
+        <option value="400">El cuatrocientos</option>
+    </select>
+    <input type="submit" value="Consultar" [disabled]="formulario.invalid">
+</form>
+</div>

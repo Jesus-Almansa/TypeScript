@@ -1,0 +1,15 @@
+<h2>Lista de usuarios</h2>
+@for(u of lista; track u.id) {
+    <p (click)="mostrarDetalle(u.id)">
+        <b>{{u.name.firstname}} {{u.name.lastname}} </b>
+    </p>
+}
+@empty {
+    
+    @if(lista==null) {
+        <p class="error">Se ha producido un error. Por favor, inténtelo más tarde. O escoja otro servidor gratuito :)</p>
+    }
+    @else {
+        <p>Los datos no han llegado todavía...</p>
+    }
+}

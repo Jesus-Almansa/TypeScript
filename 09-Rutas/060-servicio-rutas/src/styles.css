@@ -1,0 +1,35 @@
+p, h1, h2, td, th, ul, li, ol, a, input, select, option, button, label, span {
+    font-family: Calibiy, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 12pt;
+    text-align: justify;
+    color:#223;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 16pt;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #fafafa;
+    margin: 0px;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.fila {
+    display:flex;
+}
+
+.error {
+    color:red;
+}

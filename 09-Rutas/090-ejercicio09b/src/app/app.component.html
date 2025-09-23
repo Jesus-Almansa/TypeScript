@@ -1,0 +1,42 @@
+<header>
+  <h1>Ejercicio 09 B</h1>
+</header>
+
+<nav>
+	<ul>
+    <li><a routerLink="">Limpiar todo</a></li>
+
+		<li>
+			<a href="#">Cada uno en su sitio<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a [routerLink]="[{outlets:{izquierda:'perro'}}]">Perro</a></li>
+				<li><a [routerLink]="[{outlets:{centro:'gato'}}]">Gato</a></li>
+				<li><a [routerLink]="[{outlets:{derecha:'jirafa'}}]">Jirafa</a></li>
+			</ul>
+		</li>
+
+    <li>
+			<a href="#">Experimentos<span class="flecha">&#9660;</span></a>
+			<ul>
+				<li><a [routerLink]="[{outlets:{izquierda:'botones'}}]">Uso de Router</a></li>
+				<li><a [routerLink]="[{outlets:{centro:'gato-de-nuevo'}}]">Gato de nuevo</a></li>
+			</ul>
+		</li>
+
+
+	</ul>
+</nav>
+<p class="limpiar"></p>
+
+<div id="contenido">
+	<article>
+		<div><router-outlet name="izquierda"></router-outlet></div>
+		<div><router-outlet name="centro"></router-outlet></div>
+		<div><router-outlet name="derecha"></router-outlet></div>
+	</article>
+</div>
+
+<footer>
+<p>Ejemplo de pie de página</p>
+</footer>
+

@@ -1,0 +1,24 @@
+<h2>Simulación de configuración de seguridad</h2>
+<p>Como no tenemos un servidor real, este componente me permite cambiar manualmente la información que se supone recibiríamos.</p>
+<p>
+    <button (click)="cambiarPrimero()" class="grande">
+        @if(primero()) {
+            Acceso a "primero" permitido
+        }
+        @else {
+            <span class="error">Acceso a "primero" prohibido</span>
+        }
+    </button>
+</p>
+
+<p>
+    <button (click)="cambiarSegundo()" class="grande">
+        @if(segundo()) {
+            Acceso a "segundo" permitido
+        }
+        @else {
+            <span class="error">Acceso a "segundo" prohibido</span>
+        }
+    </button>
+</p>
+

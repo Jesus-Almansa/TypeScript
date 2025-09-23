@@ -1,0 +1,11 @@
+input, option, select, button {
+    padding: 5px;
+}
+
+input:disabled {
+    color:#fafafa;
+}
+
+input {
+    margin-left: 1em;
+}

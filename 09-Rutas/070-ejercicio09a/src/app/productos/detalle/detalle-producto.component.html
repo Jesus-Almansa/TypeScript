@@ -1,0 +1,21 @@
+<h2>Detalle de producto</h2>
+
+<!-- Imagina escribir esto con la sintaxis tradicional-->
+@if(producto==null) {
+    @if (error==true) {
+        <p class="error">Se ha producido un error. Por favor, inténtelo más tarde. O cambie de servidor gratuito.</p>
+    }
+    @else {
+        <h2>No ha solicitado datos</h2>
+    }
+}
+@else {
+    <p>
+        <b>{{producto.title}}</b> ({{producto.id}})
+    </p>
+
+    <p>Precio: {{producto.price}}</p>
+    <p>Tipo: {{producto.category}}</p>
+    <p>{{producto.description}}</p>
+    <p><img [src]="producto.image"></p>
+}
