@@ -1,0 +1,20 @@
+<h2>Botón de Angular Material que modifica el estado</h2>
+
+<p>
+    <button mat-button-toggle (click)="cambiar()" [aria-label]="estado ? 'Desactivar estado' : 'Activar estado'">
+        Toggle Estado
+    </button>
+    <span>
+        {{estado ? 'Activo' : 'Inactivo'}}
+    </span>
+</p>
+
+<p>
+    <mat-button-toggle class="Filled" (click)="cambiar()" [checked]="estado" [aria-label]="estado ? 'Desactivar estado' : 'Activar estado'">
+        Modificar estado
+    </mat-button-toggle>
+
+    <span>
+        {{estado ? 'Activo' : 'Inactivo'}}
+    </span>
+</p>

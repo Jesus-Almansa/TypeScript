@@ -1,0 +1,89 @@
+/* 1. Variables de colores (puedes ajustarlas a tu branding) */
+:root {
+  --primary-color: #1976d2; /* Azul Material por defecto */
+  --primary-light: #63a4ff;
+  --primary-dark: #004ba0;
+
+  --accent-color: #ff4081; /* Rosa */
+  --warn-color: #f44336;
+
+  --background-color: #f5f5f5;
+  --surface-color: #ffffff;
+  --text-color: #212121;
+  --text-secondary: #757575;
+}
+
+/* 2. Estilos globales */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* 3. Ajustes de Angular Material */
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button {
+  border-radius: 8px;
+  text-transform: none; /* evita mayúsculas forzadas */
+  font-weight: 500;
+}
+
+.mat-mdc-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: var(--surface-color);
+  padding: 1rem;
+}
+
+.mat-mdc-toolbar {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* 4. Inputs y formularios */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline {
+  border-radius: 8px;
+}
+
+/* 5. Tipografía jerárquica */
+h1, .mat-headline-1 {
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+
+h2, .mat-headline-2 {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+h3, .mat-headline-3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* 6. Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.shadow-md { box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.shadow-lg { box-shadow: 0 10px 15px rgba(0,0,0,0.15); }
+
+/* 7. Scrollbar minimalista (opcional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-light);
+  border-radius: 4px;
+}

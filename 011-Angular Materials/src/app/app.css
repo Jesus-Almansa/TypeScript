@@ -1,0 +1,68 @@
+/* Contenedor principal de la aplicación */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Barra superior (toolbar) */
+.app-toolbar {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Logo y título */
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* Contenido principal */
+.app-content {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: var(--background-color);
+}
+
+/* Footer */
+.app-footer {
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 -1px 3px rgba(0,0,0,0.05);
+}
+
+/* Botones destacados en la app */
+.app-primary-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  text-transform: none;
+}
+
+.app-primary-button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+  .app-content {
+    padding: 1rem;
+  }
+
+  .app-toolbar {
+    height: 56px;
+    padding: 0 0.5rem;
+  }
+}
