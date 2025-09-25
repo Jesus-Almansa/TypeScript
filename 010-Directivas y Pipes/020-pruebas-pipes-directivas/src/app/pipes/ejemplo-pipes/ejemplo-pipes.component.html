@@ -1,0 +1,38 @@
+<h2>Ejemplos de Pipes</h2>
+
+<div id="contenedor">
+    <div>
+        <h2>upperase, slice, number</h2>
+        @if(lista==null) {n
+            <p class="error">Se ha producido un error en la conexión. Por favor, inténtelo más tarde o busque otro servidor gratuito para hacer las pruebas :)</p>
+        }
+        @else {
+            @for(p of lista; track p.id) {
+                <p (click)="leerProducto(p.id)" class="pulsar">
+                    <b>{{p.title | uppercase | slice:0:20 }}</b> - {{p.id}} <br>
+                    PRECIO: {{p.price * 3| number:'1.2-2':'es'}}
+                </p>
+            }
+            @empty {
+                <p>No se han recibido datos.</p>
+            }
+        }
+        
+    </div>
+
+    <div>
+        <h2>json, keyvalue</h2>
+        @if (producto!=null) {
+<pre>
+{{producto | json}}
+</pre>
+            <hr>
+            <p>
+                @for(elem of producto | keyvalue; track $index) {
+                    {{elem.key}} = {{elem.value}} <br>    
+                }
+            </p>
+        }
+       
+    </div>
+</div>

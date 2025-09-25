@@ -1,0 +1,43 @@
+
+header, nav, footer {
+    margin: 0px;
+    background-color: #dcc;
+    padding: 0px 10%;
+}
+
+header, footer {
+    overflow: hidden;
+}
+
+footer {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0px;
+    bottom:0px;
+}
+
+footer p {
+    text-align: right;
+}
+
+article {
+    padding-bottom: 2em;
+    margin: 5px 10%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 30%;
+}
+
+td {
+    border: 1px solid #ccc;
+    padding: 0.4em;
+}
+
+thead td {
+    background-color: #dcc;
+    padding: 0.5em;
+    font-weight: bold;
+}

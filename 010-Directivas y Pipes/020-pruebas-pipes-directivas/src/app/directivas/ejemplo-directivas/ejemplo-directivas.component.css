@@ -1,0 +1,37 @@
+button{
+    padding: 5px;
+    margin:5px;
+}
+
+.estiloUno {
+    font-style: italic;
+    color:red;
+}
+
+.estiloDos {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+button{
+    width: 10em;
+    text-align: center;
+}
+
+.rojo {
+    color:red;
+}
+
+.verde {
+    color:green;
+}
+
+.azul {
+    color:blue;
+}
+
+.destino {
+    height: 8em;
+    width: 40em;
+    border: 1px solid black;
+}

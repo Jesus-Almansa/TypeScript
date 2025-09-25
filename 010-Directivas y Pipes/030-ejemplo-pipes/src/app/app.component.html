@@ -1,0 +1,31 @@
+<header>
+  <h1>Ejemplo de pipes propios</h1>
+</header>
+
+
+<article>
+
+  <h2>Uso el pipe "elevar"</h2>
+  <p>Once al cubo vale {{11 | elevar:3}}</p>
+  <p>Aquí uso "elevar" de forma incorrecta. {{12 | elevar}}</p>
+  <p>Doce al cuadrado vale {{12 | elevar:2}}</p>
+
+  <h2>Uso el pipe "múltiplo"</h2>
+  <p>¿120 es múltiplo de 8? {{120 | multiplo:8}} </p>
+  <p>¿120 es múltiplo de 2? {{120 | multiplo}} </p>
+  <p>Uso múltiplo de forma incorrecta. {{'un error' | multiplo}} </p>
+  <p>¿120 es múltiplo de 7? {{'120' | multiplo:7}} </p>
+
+  <h2>Uso el pipe "tradudir"</h2>
+  <p>0: {{0 | traducir}}</p>
+  <p>7: {{7 | traducir}}</p>
+  <p>3: {{3 | traducir}}</p>
+
+  <p>saludo</p>
+
+</article>
+
+<footer>
+<p>Pie de página</p>
+</footer>
+

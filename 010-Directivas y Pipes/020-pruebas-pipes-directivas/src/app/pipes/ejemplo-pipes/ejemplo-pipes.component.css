@@ -1,0 +1,22 @@
+#contenedor {
+    display: flex;
+}
+
+#contenedor div {
+    width: 25%;
+    box-sizing: border-box;
+    padding: 0px 1em;
+    border-left: 2px solid #ddd;
+}
+
+#contenedor div:last-of-type {
+    width: 75%;
+}
+
+#contenedor div p:first-of-type {
+    margin-top: 0px;
+}
+
+.pulsar {
+    cursor: pointer;
+}

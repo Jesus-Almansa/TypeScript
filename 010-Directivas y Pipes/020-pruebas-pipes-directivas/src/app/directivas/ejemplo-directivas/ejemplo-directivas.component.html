@@ -1,0 +1,21 @@
+<h2>Ejemplo de ngClass</h2>
+<p>
+    <button (click)="cambiarUno()">Aplicar estilo uno</button> (cursiva y rojo)<br>
+    <button (click)="cambiarDos()">Aplicar estilo dos</button> (subrayado y negrita)
+</p>
+<p [ngClass]="{estiloUno:e1(), estiloDos:e2()}">
+    En este párrafo de ejemplo aplicamos estilo uno y/o estilo dos. la señal para estilo uno vale "{{e1()}}", y para el estilos dos "{{e2()}}".
+</p>
+<hr>
+<h2>Ejemplo de ngStyle</h2>
+<p>
+    <button (click)="cambiarNegrita()">Negrita</button><br>
+    <button (click)="cambiarCursiva()">Cursiva</button><br>
+    <button (click)="cambiarSubrayado()">Subrayado</button>
+   
+</p>
+
+<p [ngStyle]="{'fontWeight':negrita, 'textDecoration':subrayado, 'fontStyle':cursiva}">
+    Este párrafo puede estar en negrita, en cursiva y/o subrayado
+</p>
+
