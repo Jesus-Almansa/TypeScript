@@ -10,7 +10,7 @@
 </p>
 
 <p>
-    <mat-button-toggle class="Filled" (click)="cambiar()" [checked]="estado" [aria-label]="estado ? 'Desactivar estado' : 'Activar estado'">
+    <mat-button-toggle class="Flat" (click)="cambiar()" [checked]="estado" [aria-label]="estado ? 'Desactivar estado' : 'Activar estado'">
         Modificar estado
     </mat-button-toggle>
 
@@ -18,3 +18,27 @@
         {{estado ? 'Activo' : 'Inactivo'}}
     </span>
 </p>
+
+
+<p>
+    <mat-button-toggle-group name="estadoGroup" aria-label="Estado Group">
+        <mat-button-toggle class="Flat" (click)="cambiar()" [checked]="estado" [aria-label]="estado ? 'Desactivar estado' : 'Activar estado'">
+            Modificar estado
+        </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <span>
+        {{estado ? 'Activo' : 'Inactivo'}}
+    </span>
+</p>
+
+<p>
+    <mat-button-toggle-group name="estadoGroup" aria-label="Estado Group">
+        <mat-button-toggle class="Flat" (click)="cambiar()" [checked]="estado" [aria-label]="estado ? 'Desactivar estado' : 'Activar estado'">
+            Modificar estado
+        </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <span>
+        {{estado ? 'Activo' : 'Inactivo'}}
+    </span>

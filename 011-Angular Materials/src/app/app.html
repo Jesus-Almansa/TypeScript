@@ -1,8 +1,72 @@
-<header>
-  Probando cosas
+<header class="app-header">
+  <div class="app-header__content">
+    <h1>Angular Materials</h1>
+      <nav class="app-nav">
+        <ul>
+          <li>
+            <a class="app-nav__link">Configuración inicial<span class="">&#9660;</span></a>
+            <!-- <button mat-raised-button color="primary" routerLink="configuracion">Ver</button> -->
+            <ul>
+              <li><a routerLink="contar">Botones para contar</a></li>
+              <li><a routerLink="estado">Cambio de estado</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+  </div>
 </header>
 
-<p>
+
+<h4>Basic mat-select</h4>
+<mat-form-field style="max-width: 500px; margin: 0 auto; display: block;">
+  <mat-label>Menú</mat-label>
+  <mat-select>
+    @for (food of lista; track food.id) {
+      <!-- <mat-option [comida]="food.nombre">{{food.nombre}}</mat-option>  MAL -->
+      <mat-option [value]="food.nombre">{{food.nombre}}, proteinas: {{food.proteina}}g</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+<!-- <mat-toolbar>
+  <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button matIconButton class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button matIconButton class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar> -->
+
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Barra de navegacion
+    </mat-panel-title>
+    <mat-panel-description>
+
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+      <nav>
+        <ul>
+          <li><a routerLink="contar">Botones para contar</a></li>
+          <li><a routerLink="estado">Cambio de estado</a></li>
+        </ul>
+      </nav>
+</mat-expansion-panel>
+
+
+
+<article>
+  <router-outlet></router-outlet>
+</article>
+
+
+<!-- <p>
   <app-contar></app-contar>
 </p>
 
@@ -13,4 +77,11 @@
 
 <p>
   <app-estado></app-estado>
-</p>
+</p> -->
+
+<footer class="app-footer">
+<p>elamigos te regala un bokata de lomo, reclamalo</p>
+
+<button matButton="elevated" (click)="openBottomSheet()">Open file</button>
+
+</footer>

@@ -10,9 +10,9 @@ import { sharedImports } from '../shared/shared-module';
 })
 export class Contar {
 
-  count = 0;
-  title = 'Contador';
-  base = 5;
+  public count = 0;
+  public title = 'Contador';
+  public base = 5;
 
   aumentar(valor: number) {
     this.count += valor;
@@ -26,7 +26,6 @@ export class Contar {
   }
 
   seleccionarValor(valor:number) {
-    // valor += valor;
     this.base = valor;
   }
 
